@@ -55,3 +55,13 @@ a client is more difficult than it needs to be. The TorrentTTP protocol aims to 
 but to also make it simple to create interfaces for, and to, other TorrentTTP clients regardless of what language/framework was used to 
 create them.
 
+License
+========
+
+All components, unless otherwise stated, are released under the GPL V3 license. For use 
+of this package in proprietary or closed-source products, contact the original license holder.
+
+Contributors
+==============
+
+All contributions are considered an acceptance of the included contributors agreement.
