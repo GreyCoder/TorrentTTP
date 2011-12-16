@@ -16,7 +16,7 @@ is simply an alternative.
 Raw TCP to HTTP
 ----------------
 
-This protocol will make use of HTTP(S) for communication rather than streaming throw raw socket objects. It may
+This protocol will make use of HTTP(S) for communication rather than streaming through raw socket objects. It may
 be more expensive than raw TCP with the addition of the HTTP headers, but it gains the benifit of using a familiar,
 mainstream, and well supported protocol for communication plus all the perks that come with it (potential for cacheing,
 easy SSL/TLS implementation, web framework readiness, etc.).
@@ -52,14 +52,14 @@ Ease of Development
 
 All the above mentioned aspects of the BitTorrent protocol, coupled with its sparse documentation, create an environment where developing
 a client is more difficult than it needs to be. The TorrentTTP protocol aims to not just make it simple and easy to create a complient client
-but to also make it simple to create interfaces for, and to, other TorrentTTP clients regardless of what language/framework was used to 
+but to also make it simple to create interfaces to and for other TorrentTTP clients regardless of what language/framework was used to 
 create them.
 
 License
 ========
 
 All components, unless otherwise stated, are released under the GPL V3 license. For use 
-of this package in proprietary or closed-source products, contact the original license holder.
+of this package in proprietary or closed-source products, contact the original copyright holder.
 
 Contributors
 ==============
