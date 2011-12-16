@@ -15,54 +15,62 @@
 
                 "GET": {
 
-                    "Parameters": {
+                    "Parameters": [
 
-                        "Auth": {
+                        {
 
+                            "Key": "Auth",
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
 
                         }
 
-                    },
+                    ],
 
-                    "Transactions": [],
+                    "Transactions": [
+                    
+                    
+                    
+                    ],
 
-                    "Return": {
+                    "Returns": [
 
-                        "Shares": {
+                        {
 
+                            "Key": "Shares",
                             "Type": "List",
                             "Description": "A list of accessible shares.",
-                            "Definition": {
+                            "Definition": [
 
-                                "UUID": {
+                                {
 
+                                    "Key": "UUID",
                                     "Type": "String",
                                     "Description": "UUID that represents the share."
 
                                 },
 
-                                "Name": {
+                                {
 
+                                    "Key": "Name",
                                     "Type": "String",
                                     "Description": "User chosen name as it is defined in the meta-data."
 
                                 },
 
-                                "Write": {
+                                {
 
+                                    "Key": "Write",
                                     "Type": "Boolean",
                                     "Description": "Indicator of whether or not the user can edit the contents of the share."
 
                                 }
 
-                            }
-
+                            ]
 
                         }
 
-                    },
+                    ],
 
                     "Errors": [
 
@@ -85,36 +93,43 @@
 
                 "POST": {
 
-                    "Parameters": {
+                    "Parameters": [
 
-                        "Auth": {
+                        {
 
+                            "Key": "Auth",
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
 
                         },
 
-                        "Name": {
+                        {
 
+                            "Key": "Name",
                             "Type": "String",
                             "Description": "User chosen name for the Share."
 
                         }
 
-                    },
+                    ],
 
-                    "Transactions": [],
+                    "Transactions": [
+                    
+                    
+                    
+                    ],
 
-                    "Return": {
+                    "Returns": [
 
-                        "UUID": {
+                        {
 
+                            "Key": "UUID",
                             "Type": "String",
                             "Description": "UUID that identifies the new Share."
 
                         }
 
-                    },
+                    ],
 
                     "Errors": [
 
@@ -124,18 +139,21 @@
                             "Message": "Missing or invalid parameters."
 
                         },
+                        
                         {
 
                             "Code": 401,
                             "Message": "Missing or invalid <Auth>."
 
                         },
+                        
                         {
 
                             "Code": 409,
                             "Message": "Share already exists."
 
                         },
+                        
                         {
                             "Code": 500,
                             "Message": "Server node failure"
@@ -148,73 +166,85 @@
 
             }
         },
+        
         {
             "URL": "<Storage Root>/<*Share UUID*>/",
             "Verbs": {
 
                 "GET": {
 
-                    "Parameters": {
+                    "Parameters": [
 
-                        "Auth": {
+                        {
 
+                            "Key": "Auth",
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
 
                         }
 
-                    },
+                    ],
 
-                    "Transactions": [],
+                    "Transactions": [
+                    
+                    
+                    
+                    ],
 
-                    "Return": {
+                    "Returns": [
 
-                        "Files": {
+                        {
 
+                            "Key": "Files",
                             "Type": "List",
                             "Description": "A list of accessible files.",
-                            "Definition": {
+                            "Definition": [
 
-                                "UUID": {
+                                {
 
+                                    "Key": "UUID",
                                     "Type": "String",
                                     "Description": "UUID that represents the share."
 
                                 },
 
-                                "Path": {
+                                {
 
+                                    "Key": "Path",
                                     "Type": "String",
                                     "Description": "Relative path of the file as defined in the meta-data."
 
                                 },
 
-                                "Name": {
+                                {
 
+                                    "Key": "Name",
                                     "Type": "String",
                                     "Description": "User chosen name as it is defined in the meta-data."
 
                                 },
 
-                                "Size": {
+                                {
 
+                                    "Key": "Size",
                                     "Type": "Number",
                                     "Description": "Size of file in bytes"
 
                                 },
 
-                                "Write": {
+                                {
 
+                                    "Key": "Write",
                                     "Type": "Boolean",
                                     "Description": "Indicator of whether or not the user can edit the contents of the share."
 
                                 }
 
-                            }
+                            ]
 
                         }
 
-                    },
+                    ],
 
                     "Errors": [
 
@@ -224,24 +254,28 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
+                        
                         {
 
                             "Code": 403,
                             "Message": "Read permission denied."
 
                         },
+                        
                         {
 
                             "Code": 404,
                             "Message": "Invalid share UUID."
 
                         },
+                        
                         {
 
                             "Code": 410,
                             "Message": "Share has been removed."
 
                         },
+                        
                         {
 
                             "Code": 500,
@@ -255,57 +289,67 @@
 
                 "POST":{
 
-                    "Parameters": {
+                    "Parameters": [
 
-                        "Auth": {
+                        {
 
+                            "Key": "Auth",
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
 
                         },
 
-                        "Path": {
+                        {
 
+                            "Key": "Path",
                             "Type": "String",
                             "Description": "Relative path in which to place the file. Ex: Documents/Research/Biology/"
 
                         },
 
-                        "Name": {
+                        {
 
+                            "Key": "Name",
                             "Type": "String",
                             "Description": "Name of the file being created."
 
                         },
 
-                        "Size": {
+                        {
 
+                            "Key": "Size",
                             "Type": "Number",
                             "Description": "Size of the new file in bytes."
 
                         },
 
-                        "Hash": {
+                        {
 
+                            "Key": "Hash",
                             "Type": "String",
                             "Description": "SHA512 hash that can be used to validate the file."
 
                         }
 
-                    },
+                    ],
 
-                    "Transactions": [],
+                    "Transactions": [
+                    
+                    
+                    
+                    ],
 
-                    "Return": {
+                    "Returns": [
 
-                        "UUID": {
+                        {
 
+                            "Key": "UUID",
                             "Type": "String",
                             "Description": "UUID representing the file."
 
                         }
 
-                    },
+                    ],
 
                     "Errors": [
 
@@ -315,30 +359,35 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
+                        
                         {
 
                             "Code": 403,
                             "Message": "Read permission denied."
 
                         },
+                        
                         {
 
                             "Code": 404,
                             "Message": "Invalid share UUID."
 
                         },
+                        
                         {
 
                             "Code": 410,
                             "Message": "Share has been removed."
 
                         },
+                        
                         {
 
                             "Code": 412,
                             "Message": "Out of allocated space."
 
                         },
+                        
                         {
 
                             "Code": 500,
@@ -352,79 +401,91 @@
 
                 "PUT": {
 
-                    "Parameters": {
+                    "Parameters": [
 
-                        "Auth": {
+                        {
 
+                            "Key": "Auth",
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
 
                         },
 
-                        "UUID": {
+                        {
 
+                            "Key": "UUID",
                             "Type": "String",
                             "Description": "UUID that identifies the Share."
 
                         },
 
-                        "Groups": {
+                        {
 
+                            "Key": "Groups",
                             "Type": "JSON",
                             "Description": "Object containing ACL sets for the Share.",
-                            "Definition": {
+                            "Definition": [
 
-                                "Read": {
+                                {
 
+                                    "Key": "Read",
                                     "Type": "List",
                                     "Description": "List of UUID's that identify groups with READ permissions on the Share."
 
                                 },
 
-                                "Write": {
+                                {
 
+                                    "Key": "Write",
                                     "Type": "List",
                                     "Description": "List of UUID's that identify groups with WRITE permissions on the Share."
 
                                 }
 
-                            }
+                            ]
 
                         },
 
-                        "Users": {
+                        {
 
+                            "Key": "Users",
                             "Type": "JSON",
                             "Description": "Object containing ACL sets for the Share.",
-                            "Definition": {
+                            "Definition": [
 
-                                "Read": {
+                                {
 
+                                    "Key": "Read",
                                     "Type": "List",
                                     "Description": "List of UUID's that identify users with READ permissions on the Share."
 
                                 },
 
-                                "Write": {
+                                {
 
+                                    "Key": "Write",
                                     "Type": "List",
                                     "Description": "List of UUID's that identify users with WRITE permissions on the Share."
 
                                 }
 
-                            }
+                            ]
 
                         }
 
-                    },
+                    ],
 
-                    "Transactions": [],
+                    "Transactions": [
+                    
+                    
+                    
+                    ],
 
-                    "Return": {
+                    "Returns": [
 
 
 
-                    },
+                    ],
 
                     "Errors": [
 
@@ -434,24 +495,28 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
+                        
                         {
 
                             "Code": 403,
                             "Message": "Write permission denied."
 
                         },
+                        
                         {
 
                             "Code": 404,
                             "Message": "Invalid share UUID."
 
                         },
+                        
                         {
 
                             "Code": 410,
                             "Message": "Share has been removed."
 
                         },
+                        
                         {
 
                             "Code": 500,
@@ -465,31 +530,37 @@
 
                 "DELETE": {
 
-                    "Parameters": {
+                    "Parameters": [
 
-                        "Auth": {
+                        {
 
+                            "Key": "Auth",
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
 
                         },
 
-                        "UUID": {
+                        {
 
+                            "Key": "UUID",
                             "Type": "String",
                             "Description": "UUID that identifies the Share."
 
                         }
 
-                    },
+                    ],
 
-                    "Transactions": [],
+                    "Transactions": [
+                    
+                    
+                    
+                    ],
 
-                    "Return": {
+                    "Returns": [
 
 
 
-                    },
+                    ],
 
                     "Errors": [
 
@@ -499,24 +570,28 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
+                        
                         {
 
                             "Code": 403,
                             "Message": "Write permission denied."
 
                         },
+                        
                         {
 
                             "Code": 404,
                             "Message": "Invalid share UUID."
 
                         },
+                        
                         {
 
                             "Code": 410,
                             "Message": "Share has been removed."
 
                         },
+                        
                         {
 
                             "Code": 500,
@@ -530,38 +605,49 @@
 
             }
         },
+        
         {
             "URL": "<root>/<Share UUID>/<*File UUID*>/",
             "Verbs": {
 
                 "GET": {
 
-                    "Parameters": {
+                    "Parameters": [
 
-                        "Auth": {
+                        {
 
+                            "Key": "Auth",
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
 
                         },
 
-                        "Offset": {
+                        {
 
+                            "Key": "Offset",
                             "Type": "Number",
                             "Description": "Byte offset used as starting point of file read operation."
 
                         }
 
-                    },
+                    ],
 
-                    "Transactions": [],
+                    "Transactions": [
+                    
+                    
+                    
+                    ],
 
-                    "Return": {
+                    "Returns": [
 
-                        "Type": "Binary",
-                        "Description": "Binary stream of 512 kb."
+                        {
+                        
+                            "Type": "Binary",
+                            "Description": "Binary stream of 512 kb."
+                            
+                        }
 
-                    },
+                    ],
 
                     "Errors": [
 
@@ -571,30 +657,35 @@
                             "Message": "Missing or invalid parameters."
 
                         },
+                        
                         {
 
                             "Code": 401,
                             "Message": "Missing or invalid <Auth>."
 
                         },
+                        
                         {
 
                             "Code": 403,
                             "Message": "Read permissions denied."
 
                         },
+                        
                         {
 
                             "Code": 404,
                             "Message": "Invalid <Directory UUID> or <File UUID>."
 
                         },
+                        
                         {
 
                             "Code": 410,
                             "Message": "<Directory UUID> or <File UUID> no longer exists."
 
                         },
+                        
                         {
 
                             "Code": 500,
@@ -608,52 +699,61 @@
 
                 "POST":{
 
-                    "Parameters": {
+                    "Parameters": [
 
-                        "Auth": {
+                        {
 
+                            "Key": "Auth",
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
 
                         },
 
-                        "Path": {
+                        {
 
+                            "Key": "Path",
                             "Type": "String",
                             "Description": "Relative path in which to place the file. Ex: Documents/Business/Good_Ideas/"
 
                         },
 
-                        "Name": {
+                        {
 
+                            "Key": "Name",
                             "Type": "String",
                             "Description": "Name of the file being created."
 
                         },
 
-                        "Size": {
+                        {
 
+                            "Key": "Size",
                             "Type": "Number",
                             "Description": "Size of the new file in bytes."
 
                         },
 
-                        "Hash": {
+                        {
 
+                            "Key": "Hash",
                             "Type": "String",
                             "Description": "SHA512 hash that can be used to validate the file."
 
                         }
 
-                    },
+                    ],
 
-                    "Transactions": [],
+                    "Transactions": [
+                    
+                    
+                    
+                    ],
 
-                    "Return": {
+                    "Returns": [
 
 
 
-                    },
+                    ],
 
                     "Errors": [
 
@@ -663,30 +763,35 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
+                        
                         {
 
                             "Code": 403,
                             "Message": "Write permission denied."
 
                         },
+                        
                         {
 
                             "Code": 404,
                             "Message": "Invalid File UUID."
 
                         },
+                        
                         {
 
                             "Code": 410,
                             "Message": "File has been removed."
 
                         },
+                        
                         {
 
                             "Code": 412,
                             "Message": "Out of allocated space."
 
                         },
+                        
                         {
 
                             "Code": 500,
@@ -700,30 +805,33 @@
 
                 "PUT": {
 
-                    "Parameters": {
+                    "Parameters": [
 
-                        "Auth": {
+                        {
 
+                            "Key": "Auth",
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
 
                         },
 
-                        "Offset": {
+                        {
 
+                            "Key": "Offset",
                             "Type": "Number",
                             "Description": "Byte offset used as starting point of file write operation."
 
                         },
 
-                        "Hash": {
+                        {
 
+                            "Key": "Hash",
                             "Type": "String",
                             "Description": "SHA512 used to validate the chunk."
 
                         }
 
-                    },
+                    ],
 
                     "Transactions": [
 
@@ -735,6 +843,7 @@
                             "Description": "Single bytes message that indicates readiness to recieve data."
 
                         },
+                        
                         {
 
                             "Source": "Client",
@@ -746,11 +855,11 @@
 
                     ],
 
-                    "Return": {
+                    "Returns": [
 
 
 
-                    },
+                    ],
 
                     "Errors": [
 
@@ -760,29 +869,34 @@
                             "Message": "Missing or invalid parameters."
 
                         },
+                        
                         {
 
                             "Code": 401,
                             "Message": "Missing or invalid <Auth>."
 
                         },
+                        
                         {
 
                             "Code": 403,
                             "Message": "Write permissions denied."
 
                         },
+                        
                         {
 
                             "Code": 404,
                             "Message": "Invalid <Directory UUID> or <File UUID>."
 
                         },
+                        
                         {
                             "Code": 410,
                             "Message": "<Directory UUID> or <File UUID> no longer exists."
 
                         },
+                        
                         {
 
                             "Code": 500,
@@ -796,31 +910,35 @@
 
                 "DELETE": {
 
-                    "Parameters": {
+                    "Parameters": [
 
-                        "Auth": {
+                        {
 
+                            "Key": "Auth",
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
 
                         },
 
-                        "UUID": {
+                        {
 
+                            "Key": "UUID",
                             "Type": "String",
                             "Description": "UUID that identifies the File."
 
                         }
 
-                    },
+                    ],
 
-                    "Transactions": [],
+                    "Transactions": [
+                    
+                    ],
 
-                    "Return": {
+                    "Returns": [
 
 
 
-                    },
+                    ],
 
                     "Errors": [
 
@@ -830,30 +948,35 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
+                        
                         {
 
                             "Code": 403,
                             "Message": "Write permission denied."
 
                         },
+                        
                         {
 
                             "Code": 404,
                             "Message": "Invalid File UUID."
 
                         },
+                        
                         {
 
                             "Code": 410,
                             "Message": "File has been removed."
 
                         },
+                        
                         {
 
                             "Code": 412,
                             "Message": "Out of allocated space."
 
                         },
+                        
                         {
 
                             "Code": 500,
@@ -866,7 +989,10 @@
                 }
 
             }
+            
         }
+        
     ]
+    
 }
 
