@@ -1,6 +1,8 @@
 
 {
 
+    "Type": "REST",
+
     "Name": "Storage API",
 
     "Description": "REST interface for a storage engine",
