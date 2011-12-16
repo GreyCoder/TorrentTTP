@@ -2,591 +2,869 @@
 {
 
     "Name": "Storage API",
-    
+
     "Description": "REST interface for a storage engine",
-    
-        "Functions": [
-        
+
+    "Functions": [
+
+        {
             "URL": "<*Storage Root*>/",
             "Verbs": {
-            
+
                 "GET": {
-                
+
                     "Parameters": {
-                    
+
                         "Auth": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
-                        
+
                         }
-                        
+
                     },
-                    
+
+                    "Transactions": [],
+
                     "Return": {
-                    
+
                         "Shares": {
-                        
+
                             "Type": "List",
                             "Description": "A list of accessible shares.",
                             "Definition": {
-                            
+
                                 "UUID": {
-                                
+
                                     "Type": "String",
                                     "Description": "UUID that represents the share."
-                                
+
                                 },
-                                
+
                                 "Name": {
-                                
+
                                     "Type": "String",
                                     "Description": "User chosen name as it is defined in the meta-data."
-                                
+
                                 },
-                                
+
                                 "Write": {
-                                
+
                                     "Type": "Boolean",
                                     "Description": "Indicator of whether or not the user can edit the contents of the share."
-                                
+
                                 }
-                            
+
                             }
-                            
-                        
+
+
                         }
-                    
+
                     },
-                    
-                    "Errors": {
-                    
-                        "401": "Missing or invalid <Auth>.",
-                        "500": "Server node failiure."
-                    
-                    }
-                    
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+
+                        {
+                            "Code": 500,
+                            "Message": "Server node failiure."
+
+                        }
+
+                    ]
+
                 },
-                
+
                 "POST": {
-                
+
                     "Parameters": {
-                    
+
                         "Auth": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
-                        
+
                         },
-                    
+
                         "Name": {
-                        
+
                             "Type": "String",
                             "Description": "User chosen name for the Share."
-                        
+
                         }
-                        
+
                     },
-                    
+
+                    "Transactions": [],
+
                     "Return": {
-                    
+
                         "UUID": {
-                        
+
                             "Type": "String",
                             "Description": "UUID that identifies the new Share."
-                        
+
                         }
-                        
+
                     },
-                    
-                    "Errors": {
-                    
-                        "400": "Missing or invalid parameters.",
-                        "401": "Missing or invalid <Auth>.",
-                        "409": "Share already exists.",
-                        "500": "Server node failure"
-                    
-                    }
-                
-                },
-            
-            },
-            
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 400,
+                            "Message": "Missing or invalid parameters."
+
+                        },
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+                        {
+
+                            "Code": 409,
+                            "Message": "Share already exists."
+
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Server node failure"
+
+                        }
+
+                    ]
+
+                }
+
+            }
+        },
+        {
             "URL": "<Storage Root>/<*Share UUID*>/",
             "Verbs": {
-            
+
                 "GET": {
-                
+
                     "Parameters": {
-                    
+
                         "Auth": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
-                        
+
                         }
-                        
+
                     },
-                    
+
+                    "Transactions": [],
+
                     "Return": {
-                    
+
                         "Files": {
-                        
+
                             "Type": "List",
                             "Description": "A list of accessible files.",
                             "Definition": {
-                            
+
                                 "UUID": {
-                                
+
                                     "Type": "String",
                                     "Description": "UUID that represents the share."
-                                
+
                                 },
-                                
+
                                 "Path": {
-                                
+
                                     "Type": "String",
                                     "Description": "Relative path of the file as defined in the meta-data."
-                                
+
                                 },
-                                
+
                                 "Name": {
-                                
+
                                     "Type": "String",
                                     "Description": "User chosen name as it is defined in the meta-data."
-                                
+
                                 },
-                                
+
                                 "Size": {
-                                
+
                                     "Type": "Number",
                                     "Description": "Size of file in bytes"
-                                
-                                }
-                                
+
+                                },
+
                                 "Write": {
-                                
+
                                     "Type": "Boolean",
                                     "Description": "Indicator of whether or not the user can edit the contents of the share."
-                                
+
                                 }
-                            
+
                             }
-                        
+
                         }
-                    
+
                     },
-                    
-                    "Errors": {
-                    
-                        "401": "Missing or invalid <Auth>.",
-                        "403": "Read permission denied.",
-                        "404": "Invalid share UUID.",
-                        "410": "Share has been removed.",
-                        "500": "Server node failiure."
-                    
-                    }
-                    
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+                        {
+
+                            "Code": 403,
+                            "Message": "Read permission denied."
+
+                        },
+                        {
+
+                            "Code": 404,
+                            "Message": "Invalid share UUID."
+
+                        },
+                        {
+
+                            "Code": 410,
+                            "Message": "Share has been removed."
+
+                        },
+                        {
+
+                            "Code": 500,
+                            "Message": "Server node failiure."
+
+                        }
+
+                    ]
+
                 },
-                
+
                 "POST":{
-                
+
                     "Parameters": {
-                    
+
                         "Auth": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
-                        
+
                         },
-                        
+
                         "Path": {
-                        
+
                             "Type": "String",
                             "Description": "Relative path in which to place the file. Ex: Documents/Research/Biology/"
-                        
+
                         },
-                        
+
                         "Name": {
-                        
+
                             "Type": "String",
                             "Description": "Name of the file being created."
-                        
+
                         },
-                        
+
                         "Size": {
-                        
+
                             "Type": "Number",
                             "Description": "Size of the new file in bytes."
-                        
+
                         },
-                        
+
                         "Hash": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that can be used to validate the file."
-                        
+
                         }
-                    
-                    }
-                    
+
+                    },
+
+                    "Transactions": [],
+
                     "Return": {
-                    
+
                         "UUID": {
-                        
+
                             "Type": "String",
                             "Description": "UUID representing the file."
-                            
+
                         }
-                    
+
                     },
-                    
-                    "Errors": {
-                    
-                        "401": "Missing or invalid <Auth>.",
-                        "403": "Write permission denied.",
-                        "404": "Invalid share UUID.",
-                        "410": "Share has been removed.",
-                        "412": "Out of allocated space."
-                        "500": "Server node failiure."
-                    
-                    }
-                    
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+                        {
+
+                            "Code": 403,
+                            "Message": "Read permission denied."
+
+                        },
+                        {
+
+                            "Code": 404,
+                            "Message": "Invalid share UUID."
+
+                        },
+                        {
+
+                            "Code": 410,
+                            "Message": "Share has been removed."
+
+                        },
+                        {
+
+                            "Code": 412,
+                            "Message": "Out of allocated space."
+
+                        },
+                        {
+
+                            "Code": 500,
+                            "Message": "Server node failiure."
+
+                        }
+
+                    ]
+
                 },
-                
+
                 "PUT": {
-                
+
                     "Parameters": {
-                    
+
                         "Auth": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
-                        
+
                         },
-                        
+
                         "UUID": {
-                        
+
                             "Type": "String",
                             "Description": "UUID that identifies the Share."
-                        
+
                         },
-                        
+
                         "Groups": {
-                        
+
                             "Type": "JSON",
                             "Description": "Object containing ACL sets for the Share.",
                             "Definition": {
-                            
+
                                 "Read": {
-                                
+
                                     "Type": "List",
                                     "Description": "List of UUID's that identify groups with READ permissions on the Share."
-                                
+
                                 },
-                                
+
                                 "Write": {
-                                
+
                                     "Type": "List",
                                     "Description": "List of UUID's that identify groups with WRITE permissions on the Share."
-                                
+
                                 }
-                            
+
                             }
-                            
+
                         },
-                        
+
                         "Users": {
-                        
+
                             "Type": "JSON",
                             "Description": "Object containing ACL sets for the Share.",
                             "Definition": {
-                            
+
                                 "Read": {
-                                
+
                                     "Type": "List",
                                     "Description": "List of UUID's that identify users with READ permissions on the Share."
-                                
+
                                 },
-                                
+
                                 "Write": {
-                                
+
                                     "Type": "List",
                                     "Description": "List of UUID's that identify users with WRITE permissions on the Share."
-                                
+
                                 }
-                            
+
                             }
-                            
-                        },
-                        
-                    }
-                    
-                    "Return": {
-                    
-                        
-                       
+
+                        }
+
                     },
-                    
-                    "Errors": {
-                    
-                        "401": "Missing or invalid <Auth>.",
-                        "403": "Write permission denied.",
-                        "404": "Invalid share UUID.",
-                        "410": "Share has been removed.",
-                        "500": "Server node failiure."
-                    
-                    }
-                    
+
+                    "Transactions": [],
+
+                    "Return": {
+
+
+
+                    },
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+                        {
+
+                            "Code": 403,
+                            "Message": "Write permission denied."
+
+                        },
+                        {
+
+                            "Code": 404,
+                            "Message": "Invalid share UUID."
+
+                        },
+                        {
+
+                            "Code": 410,
+                            "Message": "Share has been removed."
+
+                        },
+                        {
+
+                            "Code": 500,
+                            "Message": "Server node failiure."
+
+                        }
+
+                    ]
+
                 },
-                
+
                 "DELETE": {
-                
+
                     "Parameters": {
-                    
+
                         "Auth": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
-                        
+
                         },
-                        
+
                         "UUID": {
-                        
+
                             "Type": "String",
                             "Description": "UUID that identifies the Share."
-                        
-                        },
-                        
-                    }
-                    
-                    "Return": {
-                    
-                        
-                       
+
+                        }
+
                     },
-                    
-                    "Errors": {
-                    
-                        "401": "Missing or invalid <Auth>.",
-                        "403": "Write permission denied.",
-                        "404": "Invalid share UUID.",
-                        "410": "Share has been removed.",
-                        "500": "Server node failiure."
-                    
-                    }
-                
+
+                    "Transactions": [],
+
+                    "Return": {
+
+
+
+                    },
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+                        {
+
+                            "Code": 403,
+                            "Message": "Write permission denied."
+
+                        },
+                        {
+
+                            "Code": 404,
+                            "Message": "Invalid share UUID."
+
+                        },
+                        {
+
+                            "Code": 410,
+                            "Message": "Share has been removed."
+
+                        },
+                        {
+
+                            "Code": 500,
+                            "Message": "Server node failiure."
+
+                        }
+
+                    ]
+
                 }
-                
-            },
-            
+
+            }
+        },
+        {
             "URL": "<root>/<Share UUID>/<*File UUID*>/",
             "Verbs": {
-            
+
                 "GET": {
-                
+
                     "Parameters": {
-                    
+
                         "Auth": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
-                        
+
                         },
-                        
+
                         "Offset": {
 
                             "Type": "Number",
                             "Description": "Byte offset used as starting point of file read operation."
-                        
-                        },
-                    
+
+                        }
+
                     },
-                    
+
+                    "Transactions": [],
+
                     "Return": {
-                    
+
                         "Type": "Binary",
                         "Description": "Binary stream of 512 kb."
-                    
+
                     },
-                    
-                    "Errors": {
-                    
-                        "400": "Missing or invalid parameters.",
-                        "401": "Missing or invalid <Auth>.",
-                        "403": "Read permissions denied.",
-                        "404": "Invalid <Directory UUID> or <File UUID>.",
-                        "410": "<Directory UUID> or <File UUID> no longer exists.",
-                        "500": "Server node failure."
-                    
-                    }
-                
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 400,
+                            "Message": "Missing or invalid parameters."
+
+                        },
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+                        {
+
+                            "Code": 403,
+                            "Message": "Read permissions denied."
+
+                        },
+                        {
+
+                            "Code": 404,
+                            "Message": "Invalid <Directory UUID> or <File UUID>."
+
+                        },
+                        {
+
+                            "Code": 410,
+                            "Message": "<Directory UUID> or <File UUID> no longer exists."
+
+                        },
+                        {
+
+                            "Code": 500,
+                            "Message": "Server node failure."
+
+                        }
+
+                    ]
+
                 },
-                
+
                 "POST":{
-                
+
                     "Parameters": {
-                    
+
                         "Auth": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
-                        
+
                         },
-                        
+
                         "Path": {
-                        
+
                             "Type": "String",
                             "Description": "Relative path in which to place the file. Ex: Documents/Business/Good_Ideas/"
-                        
+
                         },
-                        
+
                         "Name": {
-                        
+
                             "Type": "String",
                             "Description": "Name of the file being created."
-                        
+
                         },
-                        
+
                         "Size": {
-                        
+
                             "Type": "Number",
                             "Description": "Size of the new file in bytes."
-                        
+
                         },
-                        
+
                         "Hash": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that can be used to validate the file."
-                        
+
                         }
-                    
-                    }
-                    
-                    "Return": {
-                    
-                    
-                    
+
                     },
-                    
-                    "Errors": {
-                    
-                        "401": "Missing or invalid <Auth>.",
-                        "403": "Write permission denied.",
-                        "404": "Invalid File UUID.",
-                        "410": "File has been removed.",
-                        "412": "Out of allocated space."
-                        "500": "Server node failiure."
-                    
-                    }
-                    
+
+                    "Transactions": [],
+
+                    "Return": {
+
+
+
+                    },
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+                        {
+
+                            "Code": 403,
+                            "Message": "Write permission denied."
+
+                        },
+                        {
+
+                            "Code": 404,
+                            "Message": "Invalid File UUID."
+
+                        },
+                        {
+
+                            "Code": 410,
+                            "Message": "File has been removed."
+
+                        },
+                        {
+
+                            "Code": 412,
+                            "Message": "Out of allocated space."
+
+                        },
+                        {
+
+                            "Code": 500,
+                            "Message": "Server node failiure."
+
+                        }
+
+                    ]
+
                 },
-                
+
                 "PUT": {
-                
+
                     "Parameters": {
-                    
+
                         "Auth": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
-                        
+
                         },
-                        
+
                         "Offset": {
 
                             "Type": "Number",
                             "Description": "Byte offset used as starting point of file write operation."
-                        
+
                         },
-                        
+
                         "Hash": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 used to validate the chunk."
-                        
+
                         }
-                    
+
                     },
-                    
-                    "Response": {
-                    
-                        "Ready": {
-                        
+
+                    "Transactions": [
+
+                        {
+
+                            "Source": "Server",
+                            "Name": "Ready",
                             "Type": "Number",
-                            "Description": "Single byte message that indicates a readiness to recieve data stream."
-                        
+                            "Description": "Single bytes message that indicates readiness to recieve data."
+
+                        },
+                        {
+
+                            "Source": "Client",
+                            "Name": "Payload",
+                            "Type": "Binary",
+                            "Description": "Binary stream of 512 kb."
+
                         }
-                        
-                    
-                    }
-                    
-                    "Payload": {
-                    
-                        "Type": "Binary",
-                        "Description": "Binary stream of 512 kb."
-                    
-                    }
-                    
+
+                    ],
+
                     "Return": {
-                    
-                    
-                    
+
+
+
                     },
-                    
-                    "Errors": {
-                    
-                        "400": "Missing or invalid parameters.",
-                        "401": "Missing or invalid <Auth>.",
-                        "403": "Write permissions denied.",
-                        "404": "Invalid <Directory UUID> or <File UUID>.",
-                        "410": "<Directory UUID> or <File UUID> no longer exists.",
-                        "500": "Server node failure."
-                    
-                    }
-                
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 400,
+                            "Message": "Missing or invalid parameters."
+
+                        },
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+                        {
+
+                            "Code": 403,
+                            "Message": "Write permissions denied."
+
+                        },
+                        {
+
+                            "Code": 404,
+                            "Message": "Invalid <Directory UUID> or <File UUID>."
+
+                        },
+                        {
+                            "Code": 410,
+                            "Message": "<Directory UUID> or <File UUID> no longer exists."
+
+                        },
+                        {
+
+                            "Code": 500,
+                            "Message": "Server node failure."
+
+                        }
+
+                    ]
+
                 },
-                
+
                 "DELETE": {
-                
+
                     "Parameters": {
-                    
+
                         "Auth": {
-                        
+
                             "Type": "String",
                             "Description": "SHA512 hash that identifies a client."
-                        
+
                         },
-                        
+
                         "UUID": {
-                        
+
                             "Type": "String",
                             "Description": "UUID that identifies the File."
-                        
-                        },
-                        
-                    }
-                    
-                    "Return": {
-                    
-                    
-                    
+
+                        }
+
                     },
-                    
-                    "Errors": {
-                    
-                        "401": "Missing or invalid <Auth>.",
-                        "403": "Write permission denied.",
-                        "404": "Invalid File UUID.",
-                        "410": "File has been removed.",
-                        "500": "Server node failiure."
-                    
-                    }
-                
+
+                    "Transactions": [],
+
+                    "Return": {
+
+
+
+                    },
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+                        {
+
+                            "Code": 403,
+                            "Message": "Write permission denied."
+
+                        },
+                        {
+
+                            "Code": 404,
+                            "Message": "Invalid File UUID."
+
+                        },
+                        {
+
+                            "Code": 410,
+                            "Message": "File has been removed."
+
+                        },
+                        {
+
+                            "Code": 412,
+                            "Message": "Out of allocated space."
+
+                        },
+                        {
+
+                            "Code": 500,
+                            "Message": "Server node failiure."
+
+                        }
+
+                    ]
+
                 }
-            
+
             }
+        }
     ]
 }
 
