@@ -1,16 +1,265 @@
 
 {
 
-    "Type": "REST",
+    "DocType": "REST",
 
     "Name": "Storage API",
 
-    "Description": "REST interface for a storage engine",
+    "Description": "REST interface for a storage engine.",
 
     "Functions": [
 
         {
-            "URL": "<*Storage Root*>/",
+
+            "URL": "/",
+
+            "Verbs": {
+
+                "GET": {
+
+                    "Parameters": [
+
+                        {
+
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "SHA512 hash that identifies a client session."
+
+                        },
+
+                        {
+
+                            "Key": "Address",
+                            "Type": "String",
+                            "Description": "IP address of the client being authenticated."
+
+                        }
+
+                    ],
+
+                    "Transactions": [
+
+
+
+                    ],
+
+                    "Returns": [
+
+
+
+                    ],
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+
+                        {
+                            "Code": 500,
+                            "Message": "Server node failiure."
+
+                        }
+
+                    ]
+
+                },
+
+                "POST": {
+
+                    "Parameters": [
+
+                        {
+
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "SHA512 that identifies a client"
+
+                        }
+
+                    ],
+
+                    "Transactions": [
+
+
+
+                    ],
+
+                    "Returns": [
+
+                        {
+
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "SHA512 that identifies a new client session.",
+
+
+                        }
+
+                    ],
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+
+                        {
+                            "Code": 500,
+                            "Message": "Server node failiure."
+
+                        }
+
+                    ]
+
+                },
+
+                "PUT": {
+
+                    "Parameters": [
+
+                        {
+
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "SHA512 that identifies an active client session.",
+
+
+                        },
+
+                        {
+
+                            "Key": "Files",
+                            "Type": "List",
+                            "Description": "List of files and parts that node hsa.",
+                            "Definition": [
+
+                                {
+
+                                    "Key": "UUID",
+                                    "Type": "String",
+                                    "Description": "UUID that represents a file.",
+
+                                },
+
+                                {
+
+                                    "Key": "Parts",
+                                    "Type": "List",
+                                    "Description": "List of part numbers the node has for this file."
+
+                                }
+
+                            ]
+
+
+                        }
+
+                    ],
+
+                    "Transactions": [
+
+
+
+                    ],
+
+                    "Returns": [
+
+
+
+                    ],
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 400,
+                            "Message": "Missing or invalid parameters."
+
+                        },
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+
+                        {
+                            "Code": 500,
+                            "Message": "Server node failure"
+
+                        }
+
+                    ]
+
+                },
+
+                "DELETE": {
+
+                    "Parameters": [
+
+                        {
+
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "SHA512 hash that identifies a client."
+
+                        },
+
+                        {
+
+                            "Key": "Session",
+                            "Type": "String",
+                            "Description": "SHA512 hash that identifies and active client session"
+
+                        }
+
+                    ],
+
+                    "Transactions": [
+
+
+
+                    ],
+
+                    "Returns": [
+
+
+
+                    ],
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+
+                        {
+                            "Code": 500,
+                            "Message": "Server node failure"
+
+                        }
+
+                    ]
+
+                }
+
+            }
+
+        },
+
+        {
+            "URL": "/Shares/",
             "Verbs": {
 
                 "GET": {
@@ -168,7 +417,8 @@
         },
 
         {
-            "URL": "<Storage Root>/<*Share UUID*>/",
+            "URL": "/Shares/<UUID>/",
+
             "Verbs": {
 
                 "GET": {
@@ -210,17 +460,25 @@
 
                                 {
 
-                                    "Key": "Path",
+                                    "Key": "Name",
                                     "Type": "String",
-                                    "Description": "Relative path of the file as defined in the meta-data."
+                                    "Description": "User chosen name as it is defined in the meta-data."
 
                                 },
 
                                 {
 
-                                    "Key": "Name",
+                                    "Key": "User_Path",
                                     "Type": "String",
-                                    "Description": "User chosen name as it is defined in the meta-data."
+                                    "Description": "Path to file on original file system."
+
+                                },
+
+                                {
+
+                                    "Key": "System_Path",
+                                    "Type": "String",
+                                    "Description": "Path to file on storage system."
 
                                 },
 
@@ -273,118 +531,6 @@
 
                             "Code": 410,
                             "Message": "Share has been removed."
-
-                        },
-
-                        {
-
-                            "Code": 500,
-                            "Message": "Server node failiure."
-
-                        }
-
-                    ]
-
-                },
-
-                "POST":{
-
-                    "Parameters": [
-
-                        {
-
-                            "Key": "Auth",
-                            "Type": "String",
-                            "Description": "SHA512 hash that identifies a client."
-
-                        },
-
-                        {
-
-                            "Key": "Path",
-                            "Type": "String",
-                            "Description": "Relative path in which to place the file. Ex: Documents/Research/Biology/"
-
-                        },
-
-                        {
-
-                            "Key": "Name",
-                            "Type": "String",
-                            "Description": "Name of the file being created."
-
-                        },
-
-                        {
-
-                            "Key": "Size",
-                            "Type": "Number",
-                            "Description": "Size of the new file in bytes."
-
-                        },
-
-                        {
-
-                            "Key": "Hash",
-                            "Type": "String",
-                            "Description": "SHA512 hash that can be used to validate the file."
-
-                        }
-
-                    ],
-
-                    "Transactions": [
-
-
-
-                    ],
-
-                    "Returns": [
-
-                        {
-
-                            "Key": "UUID",
-                            "Type": "String",
-                            "Description": "UUID representing the file."
-
-                        }
-
-                    ],
-
-                    "Errors": [
-
-                        {
-
-                            "Code": 401,
-                            "Message": "Missing or invalid <Auth>."
-
-                        },
-
-                        {
-
-                            "Code": 403,
-                            "Message": "Read permission denied."
-
-                        },
-
-                        {
-
-                            "Code": 404,
-                            "Message": "Invalid share UUID."
-
-                        },
-
-                        {
-
-                            "Code": 410,
-                            "Message": "Share has been removed."
-
-                        },
-
-                        {
-
-                            "Code": 412,
-                            "Message": "Out of allocated space."
 
                         },
 
@@ -607,7 +753,248 @@
         },
 
         {
-            "URL": "<root>/<Share UUID>/<*File UUID*>/",
+            "URL": "/Files/",
+
+            "Verbs": {
+
+                "GET": {
+
+                    "Parameters": [
+
+                        {
+
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "SHA512 hash that identifies a client."
+
+                        }
+
+                    ],
+
+                    "Transactions": [
+
+
+
+                    ],
+
+                    "Returns": [
+
+                        {
+
+                            "Key": "Files",
+                            "Type": "List",
+                            "Description": "A list of all accessible files.",
+                            "Definition": [
+
+                                {
+
+                                    "Key": "UUID",
+                                    "Type": "String",
+                                    "Description": "UUID that represents the share."
+
+                                },
+
+                                {
+
+                                    "Key": "Name",
+                                    "Type": "String",
+                                    "Description": "User chosen name as it is defined in the meta-data."
+
+                                },
+
+                                {
+
+                                    "Key": "User_Path",
+                                    "Type": "String",
+                                    "Description": "Path to file on original file system."
+
+                                },
+
+                                {
+
+                                    "Key": "System_Path",
+                                    "Type": "String",
+                                    "Description": "Path to file on storage system."
+
+                                },
+
+                                {
+
+                                    "Key": "Size",
+                                    "Type": "Number",
+                                    "Description": "Size of file in bytes"
+
+                                },
+
+                                {
+
+                                    "Key": "Write",
+                                    "Type": "Boolean",
+                                    "Description": "Indicator of whether or not the user can edit the contents of the share."
+
+                                }
+
+                            ]
+
+                        }
+
+                    ],
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 400,
+                            "Message": "Missing or invalid parameters."
+
+                        },
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+
+                        {
+
+                            "Code": 500,
+                            "Message": "Server node failure."
+
+                        }
+
+                    ]
+
+                },
+
+                "POST":{
+
+                    "Parameters": [
+
+                        {
+
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "SHA512 hash that identifies a client."
+
+                        },
+
+                        {
+
+                            "Key": "Share",
+                            "Type": "String",
+                            "Desciption": "UUID that identifies the share in which to place the file."
+
+                        },
+
+                        {
+
+                            "Key": "Path",
+                            "Type": "String",
+                            "Description": "Relative path in which to place the new file. Ex: Documents/Business/Good_Ideas/"
+
+                        },
+
+                        {
+
+                            "Key": "Name",
+                            "Type": "String",
+                            "Description": "Name of the new file being created."
+
+                        },
+
+                        {
+
+                            "Key": "Size",
+                            "Type": "Number",
+                            "Description": "Size of the new file in bytes."
+
+                        },
+
+                        {
+
+                            "Key": "Hash",
+                            "Type": "String",
+                            "Description": "SHA512 hash that can be used to validate the file."
+
+                        },
+
+                        {
+
+                            "Key": "Parts",
+                            "Type": "List",
+                            "Description": "List of SHA512 hashes that can be used to validate parts."
+
+                        }
+
+                    ],
+
+                    "Transactions": [
+
+
+
+                    ],
+
+                    "Returns": [
+
+
+
+                    ],
+
+                    "Errors": [
+
+                        {
+
+                            "Code": 401,
+                            "Message": "Missing or invalid <Auth>."
+
+                        },
+
+                        {
+
+                            "Code": 403,
+                            "Message": "Write permission denied."
+
+                        },
+
+                        {
+
+                            "Code": 404,
+                            "Message": "Invalid Share UUID."
+
+                        },
+
+                        {
+
+                            "Code": 410,
+                            "Message": "The Share has been removed."
+
+                        },
+
+                        {
+
+                            "Code": 412,
+                            "Message": "The Share is out of allocated space."
+
+                        },
+
+                        {
+
+                            "Code": 500,
+                            "Message": "Server node failiure."
+
+                        }
+
+                    ]
+
+                }
+
+            }
+
+        },
+
+        {
+            "URL": "/Files/<UUID>/",
             "Verbs": {
 
                 "GET": {
@@ -624,9 +1011,9 @@
 
                         {
 
-                            "Key": "Offset",
+                            "Key": "Part",
                             "Type": "Number",
-                            "Description": "Byte offset used as starting point of file read operation."
+                            "Description": "Part offset used as starting point of file read operation."
 
                         }
 
@@ -675,105 +1062,6 @@
                         {
 
                             "Code": 404,
-                            "Message": "Invalid <Directory UUID> or <File UUID>."
-
-                        },
-
-                        {
-
-                            "Code": 410,
-                            "Message": "<Directory UUID> or <File UUID> no longer exists."
-
-                        },
-
-                        {
-
-                            "Code": 500,
-                            "Message": "Server node failure."
-
-                        }
-
-                    ]
-
-                },
-
-                "POST":{
-
-                    "Parameters": [
-
-                        {
-
-                            "Key": "Auth",
-                            "Type": "String",
-                            "Description": "SHA512 hash that identifies a client."
-
-                        },
-
-                        {
-
-                            "Key": "Path",
-                            "Type": "String",
-                            "Description": "Relative path in which to place the file. Ex: Documents/Business/Good_Ideas/"
-
-                        },
-
-                        {
-
-                            "Key": "Name",
-                            "Type": "String",
-                            "Description": "Name of the file being created."
-
-                        },
-
-                        {
-
-                            "Key": "Size",
-                            "Type": "Number",
-                            "Description": "Size of the new file in bytes."
-
-                        },
-
-                        {
-
-                            "Key": "Hash",
-                            "Type": "String",
-                            "Description": "SHA512 hash that can be used to validate the file."
-
-                        }
-
-                    ],
-
-                    "Transactions": [
-
-
-
-                    ],
-
-                    "Returns": [
-
-
-
-                    ],
-
-                    "Errors": [
-
-                        {
-
-                            "Code": 401,
-                            "Message": "Missing or invalid <Auth>."
-
-                        },
-
-                        {
-
-                            "Code": 403,
-                            "Message": "Write permission denied."
-
-                        },
-
-                        {
-
-                            "Code": 404,
                             "Message": "Invalid File UUID."
 
                         },
@@ -781,21 +1069,14 @@
                         {
 
                             "Code": 410,
-                            "Message": "File has been removed."
-
-                        },
-
-                        {
-
-                            "Code": 412,
-                            "Message": "Out of allocated space."
+                            "Message": "File no longer exists."
 
                         },
 
                         {
 
                             "Code": 500,
-                            "Message": "Server node failiure."
+                            "Message": "Server node failure."
 
                         }
 
@@ -817,9 +1098,9 @@
 
                         {
 
-                            "Key": "Offset",
+                            "Key": "Part",
                             "Type": "Number",
-                            "Description": "Byte offset used as starting point of file write operation."
+                            "Description": "Part offset used as starting point of file write operation."
 
                         },
 
@@ -887,13 +1168,13 @@
                         {
 
                             "Code": 404,
-                            "Message": "Invalid <Directory UUID> or <File UUID>."
+                            "Message": "Invalid File UUID."
 
                         },
 
                         {
                             "Code": 410,
-                            "Message": "<Directory UUID> or <File UUID> no longer exists."
+                            "Message": "File no longer exists."
 
                         },
 
@@ -966,14 +1247,7 @@
                         {
 
                             "Code": 410,
-                            "Message": "File has been removed."
-
-                        },
-
-                        {
-
-                            "Code": 412,
-                            "Message": "Out of allocated space."
+                            "Message": "File has already been removed."
 
                         },
 
@@ -995,4 +1269,3 @@
     ]
 
 }
-
