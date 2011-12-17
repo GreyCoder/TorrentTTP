@@ -13,9 +13,11 @@
 
             "URL": "/",
 
-            "Verbs": {
+            "Verbs": [
 
-                "GET": {
+                {
+
+                    "Name": "GET",
 
                     "Parameters": [
 
@@ -68,7 +70,9 @@
 
                 },
 
-                "POST": {
+                {
+
+                    "Name": "POST",
 
                     "Parameters": [
 
@@ -120,7 +124,9 @@
 
                 },
 
-                "PUT": {
+                {
+
+                    "Name": "PUT",
 
                     "Parameters": [
 
@@ -201,7 +207,9 @@
 
                 },
 
-                "DELETE": {
+                {
+
+                    "Name": "DELETE",
 
                     "Parameters": [
 
@@ -254,15 +262,17 @@
 
                 }
 
-            }
+            ]
 
         },
 
         {
             "URL": "/Shares/",
-            "Verbs": {
+            "Verbs": [
 
-                "GET": {
+                {
+
+                    "Name": "GET",
 
                     "Parameters": [
 
@@ -340,7 +350,9 @@
 
                 },
 
-                "POST": {
+                {
+
+                    "Name": "POST",
 
                     "Parameters": [
 
@@ -413,15 +425,17 @@
 
                 }
 
-            }
+            ]
         },
 
         {
             "URL": "/Shares/<UUID>/",
 
-            "Verbs": {
+            "Verbs": [
 
-                "GET": {
+                {
+
+                    "Name": "GET",
 
                     "Parameters": [
 
@@ -545,7 +559,9 @@
 
                 },
 
-                "PUT": {
+                {
+
+                    "Name": "PUT",
 
                     "Parameters": [
 
@@ -674,7 +690,9 @@
 
                 },
 
-                "DELETE": {
+                {
+
+                    "Name": "DELETE",
 
                     "Parameters": [
 
@@ -749,15 +767,17 @@
 
                 }
 
-            }
+            ]
         },
 
         {
             "URL": "/Files/",
 
-            "Verbs": {
+            "Verbs": [
 
-                "GET": {
+                {
+
+                    "Name": "GET",
 
                     "Parameters": [
 
@@ -867,8 +887,10 @@
 
                 },
 
-                "POST":{
+                {
 
+                    "Name": "POST",
+                
                     "Parameters": [
 
                         {
@@ -989,15 +1011,17 @@
 
                 }
 
-            }
+            ]
 
         },
 
         {
             "URL": "/Files/<UUID>/",
-            "Verbs": {
+            "Verbs": [
 
-                "GET": {
+                {
+
+                    "Name": "GET",
 
                     "Parameters": [
 
@@ -1084,7 +1108,9 @@
 
                 },
 
-                "PUT": {
+                {
+
+                    "Name": "PUT",
 
                     "Parameters": [
 
@@ -1189,7 +1215,9 @@
 
                 },
 
-                "DELETE": {
+                {
+
+                    "Name": "DELETE",
 
                     "Parameters": [
 
@@ -1262,7 +1290,7 @@
 
                 }
 
-            }
+            ]
 
         }
 
