@@ -11,273 +11,273 @@ REST interface for a storage engine.
  - - - - - - - - - - - - - - - - - - - - 
 
 
-#### Verbs
+> #### Verbs
  - - - - - - - - - - - - - - - - - - - - 
 
 
-##### GET
+> > ##### GET
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Parameters
+> > > ###### Parameters
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
+> > > > Key: Auth
 
-Type: String
+> > > > Type: String
 
 
-Description: SHA512 hash that identifies a client session.
+> > > > Description: SHA512 hash that identifies a client session.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Address
+> > > > Key: Address
 
-Type: String
-
-
-Description: IP address of the client being authenticated.
+> > > > Type: String
 
 
-- - - - - - - - - - - - - - - - - - - - 
-
-
-###### Transactions
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Returns
- - - - - - - - - - - - - - - - - - - - - 
-
-
-
-
-###### Errors
- - - - - - - - - - - - - - - - - - - - - 
-
-
- - - - - - - - - - - - - - - - - - - - - 
-Code: 401
-
-
-Missing or invalid <Auth>.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 500
-
-
-Server node failiure.
-
-
- - - - - - - - - - - - - - - - - - - - - 
-
-
-##### POST
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Parameters
-
-
- - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
-
-Type: String
-
-
-Description: SHA512 that identifies a client
+> > > > Description: IP address of the client being authenticated.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Transactions
+> > > ###### Transactions
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Returns
+> > > ###### Returns
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+
+
+> > > ###### Errors
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
-
-Type: String
+> > > > Code: 401
 
 
-Description: SHA512 that identifies a new client session.
+> > > > Missing or invalid <Auth>.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failiure.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > ##### POST
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Parameters
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: Auth
+
+> > > > Type: String
+
+
+> > > > Description: SHA512 that identifies a client
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Errors
+> > > ###### Transactions
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Returns
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 401
+> > > > Key: Auth
+
+> > > > Type: String
 
 
-Missing or invalid <Auth>.
+> > > > Description: SHA512 that identifies a new client session.
+
+
+> > > > - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Errors
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 401
+
+
+> > > > Missing or invalid <Auth>.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 500
+> > > > Code: 500
 
 
-Server node failiure.
-
-
- - - - - - - - - - - - - - - - - - - - - 
-
-
-##### PUT
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Parameters
+> > > > Server node failiure.
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
-
-Type: String
 
 
-Description: SHA512 that identifies an active client session.
+> > ##### PUT
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Parameters
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: Auth
+
+> > > > Type: String
+
+
+> > > > Description: SHA512 that identifies an active client session.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Files
+> > > > Key: Files
 
-Type: List
-
-
-Description: List of files and parts that node has.
+> > > > Type: List
 
 
-    Key: UUID
-
-    Type: String
+> > > > Description: List of files and parts that node has.
 
 
-    Description: UUID that represents a file.
+> > > >     Key: UUID
+
+> > > >     Type: String
 
 
-    Key: Parts
-
-    Type: List
+> > > >     Description: UUID that represents a file.
 
 
-    Description: List of part numbers the node has for this file.
+> > > >     Key: Parts
+
+> > > >     Type: List
 
 
-- - - - - - - - - - - - - - - - - - - - 
-
-
-###### Transactions
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Returns
- - - - - - - - - - - - - - - - - - - - - 
-
-
-
-
-###### Errors
- - - - - - - - - - - - - - - - - - - - - 
-
-
- - - - - - - - - - - - - - - - - - - - - 
-Code: 400
-
-
-Missing or invalid parameters.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 401
-
-
-Missing or invalid <Auth>.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 500
-
-
-Server node failure
-
-
- - - - - - - - - - - - - - - - - - - - - 
-
-
-##### DELETE
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Parameters
-
-
- - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
-
-Type: String
-
-
-Description: SHA512 hash that identifies a client.
-
-
-- - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Key: Session
-
-Type: String
-
-
-Description: SHA512 hash that identifies and active client session
+> > > >     Description: List of part numbers the node has for this file.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Transactions
+> > > ###### Transactions
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Returns
+> > > ###### Returns
  - - - - - - - - - - - - - - - - - - - - 
 
 
 
 
-###### Errors
+> > > ###### Errors
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 401
+> > > > Code: 400
 
 
-Missing or invalid <Auth>.
+> > > > Missing or invalid parameters.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 500
+> > > > Code: 401
 
 
-Server node failure
+> > > > Missing or invalid <Auth>.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failure
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > ##### DELETE
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Parameters
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: Auth
+
+> > > > Type: String
+
+
+> > > > Description: SHA512 hash that identifies a client.
+
+
+- - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: Session
+
+> > > > Type: String
+
+
+> > > > Description: SHA512 hash that identifies and active client session
+
+
+- - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Transactions
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Returns
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+
+
+> > > ###### Errors
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 401
+
+
+> > > > Missing or invalid <Auth>.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failure
 
 
  - - - - - - - - - - - - - - - - - - - - 
@@ -289,177 +289,177 @@ Server node failure
  - - - - - - - - - - - - - - - - - - - - 
 
 
-#### Verbs
+> #### Verbs
  - - - - - - - - - - - - - - - - - - - - 
 
 
-##### GET
+> > ##### GET
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Parameters
+> > > ###### Parameters
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
+> > > > Key: Auth
 
-Type: String
+> > > > Type: String
 
 
-Description: SHA512 hash that identifies a client.
+> > > > Description: SHA512 hash that identifies a client.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Transactions
+> > > ###### Transactions
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Returns
+> > > ###### Returns
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Shares
+> > > > Key: Shares
 
-Type: List
-
-
-Description: A list of accessible shares.
+> > > > Type: List
 
 
-    Key: UUID
-
-    Type: String
+> > > > Description: A list of accessible shares.
 
 
-    Description: UUID that represents the share.
+> > > > > > > >     Key: UUID
+
+> > > >     Type: String
 
 
-    Key: Name
-
-    Type: String
+> > > >     Description: UUID that represents the share.
 
 
-    Description: User chosen name as it is defined in the meta-data.
+> > > >     Key: Name
+
+> > > >     Type: String
 
 
-    Key: Write
-
-    Type: Boolean
+> > > >     Description: User chosen name as it is defined in the meta-data.
 
 
-    Description: Indicator of whether or not the user can edit the contents of the share.
+> > > >     Key: Write
+
+> > > >     Type: Boolean
+
+
+> > > >     Description: Indicator of whether or not the user can edit the contents of the share.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Errors
+> > > ###### Errors
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 401
+> > > > Code: 401
 
 
-Missing or invalid <Auth>.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 500
-
-
-Server node failiure.
+> > > > Missing or invalid <Auth>.
 
 
  - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
 
 
-##### POST
+> > > > Server node failiure.
+
+
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Parameters
+> > ##### POST
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Parameters
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
+> > > > Key: Auth
 
-Type: String
+> > > > Type: String
 
 
-Description: SHA512 hash that identifies a client.
+> > > > Description: SHA512 hash that identifies a client.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Name
+> > > > Key: Name
 
-Type: String
-
-
-Description: User chosen name for the Share.
+> > > > Type: String
 
 
-- - - - - - - - - - - - - - - - - - - - 
-
-
-###### Transactions
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Returns
- - - - - - - - - - - - - - - - - - - - - 
-
-
- - - - - - - - - - - - - - - - - - - - - 
-Key: UUID
-
-Type: String
-
-
-Description: UUID that identifies the new Share.
+> > > > Description: User chosen name for the Share.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Errors
+> > > ###### Transactions
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Returns
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 400
+> > > > Key: UUID
+
+> > > > Type: String
 
 
-Missing or invalid parameters.
+> > > > Description: UUID that identifies the new Share.
+
+
+> > > > - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Errors
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 400
+
+
+> > > > Missing or invalid parameters.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 401
+> > > > Code: 401
 
 
-Missing or invalid <Auth>.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 409
-
-
-Share already exists.
+> > > > Missing or invalid <Auth>.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 500
+> > > > Code: 409
 
 
-Server node failure
+> > > > Share already exists.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failure
 
 
  - - - - - - - - - - - - - - - - - - - - 
@@ -471,360 +471,360 @@ Server node failure
  - - - - - - - - - - - - - - - - - - - - 
 
 
-#### Verbs
+> #### Verbs
  - - - - - - - - - - - - - - - - - - - - 
 
 
-##### GET
+> > ##### GET
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Parameters
+> > > ###### Parameters
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
+> > > > Key: Auth
 
-Type: String
+> > > > Type: String
 
 
-Description: SHA512 hash that identifies a client.
+> > > > Description: SHA512 hash that identifies a client.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Transactions
+> > > ###### Transactions
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Returns
+> > > ###### Returns
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Files
+> > > > Key: Files
 
-Type: List
-
-
-Description: A list of accessible files.
+> > > > Type: List
 
 
-    Key: UUID
-
-    Type: String
+> > > > Description: A list of accessible files.
 
 
-    Description: UUID that represents the share.
+> > > > > > > >     Key: UUID
+
+> > > >     Type: String
 
 
-    Key: Name
-
-    Type: String
+> > > >     Description: UUID that represents the share.
 
 
-    Description: User chosen name as it is defined in the meta-data.
+> > > >     Key: Name
+
+> > > >     Type: String
 
 
-    Key: User_Path
-
-    Type: String
+> > > >     Description: User chosen name as it is defined in the meta-data.
 
 
-    Description: Path to file on original file system.
+> > > >     Key: User_Path
+
+> > > >     Type: String
 
 
-    Key: System_Path
-
-    Type: String
+> > > >     Description: Path to file on original file system.
 
 
-    Description: Path to file on storage system.
+> > > >     Key: System_Path
+
+> > > >     Type: String
 
 
-    Key: Size
-
-    Type: Number
+> > > >     Description: Path to file on storage system.
 
 
-    Description: Size of file in bytes
+> > > >     Key: Size
+
+> > > >     Type: Number
 
 
-    Key: Write
-
-    Type: Boolean
+> > > >     Description: Size of file in bytes
 
 
-    Description: Indicator of whether or not the user can edit the contents of the share.
+> > > >     Key: Write
+
+> > > >     Type: Boolean
+
+
+> > > >     Description: Indicator of whether or not the user can edit the contents of the share.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Errors
+> > > ###### Errors
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 401
+> > > > Code: 401
 
 
-Missing or invalid <Auth>.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 403
-
-
-Read permission denied.
+> > > > Missing or invalid <Auth>.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 404
+> > > > Code: 403
 
 
-Invalid share UUID.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 410
-
-
-Share has been removed.
+> > > > Read permission denied.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 500
+> > > > Code: 404
 
 
-Server node failiure.
+> > > > Invalid share UUID.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 410
+
+
+> > > > Share has been removed.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failiure.
 
 
  - - - - - - - - - - - - - - - - - - - - 
 
 
-##### PUT
+> > ##### PUT
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Parameters
+> > > ###### Parameters
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
+> > > > Key: Auth
 
-Type: String
+> > > > Type: String
 
 
-Description: SHA512 hash that identifies a client.
+> > > > Description: SHA512 hash that identifies a client.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: UUID
+> > > > Key: UUID
 
-Type: String
-
-
-Description: UUID that identifies the Share.
+> > > > Type: String
 
 
-- - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Key: Groups
-
-Type: JSON
-
-
-Description: Object containing ACL sets for the Share.
-
-
-    Key: Read
-
-    Type: List
-
-
-    Description: List of UUID's that identify groups with READ permissions on the Share.
-
-
-    Key: Write
-
-    Type: List
-
-
-    Description: List of UUID's that identify groups with WRITE permissions on the Share.
+> > > > Description: UUID that identifies the Share.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Users
+> > > > Key: Groups
 
-Type: JSON
-
-
-Description: Object containing ACL sets for the Share.
+> > > > Type: JSON
 
 
-    Key: Read
-
-    Type: List
+> > > > Description: Object containing ACL sets for the Share.
 
 
-    Description: List of UUID's that identify users with READ permissions on the Share.
+> > > >     Key: Read
+
+> > > >     Type: List
 
 
-    Key: Write
-
-    Type: List
+> > > >     Description: List of UUID's that identify groups with READ permissions on the Share.
 
 
-    Description: List of UUID's that identify users with WRITE permissions on the Share.
+> > > >     Key: Write
+
+> > > >     Type: List
 
 
-- - - - - - - - - - - - - - - - - - - - 
-
-
-###### Transactions
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Returns
- - - - - - - - - - - - - - - - - - - - - 
-
-
-
-
-###### Errors
- - - - - - - - - - - - - - - - - - - - - 
-
-
- - - - - - - - - - - - - - - - - - - - - 
-Code: 401
-
-
-Missing or invalid <Auth>.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 403
-
-
-Write permission denied.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 404
-
-
-Invalid share UUID.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 410
-
-
-Share has been removed.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 500
-
-
-Server node failiure.
-
-
- - - - - - - - - - - - - - - - - - - - - 
-
-
-##### DELETE
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Parameters
-
-
- - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
-
-Type: String
-
-
-Description: SHA512 hash that identifies a client.
+> > > >     Description: List of UUID's that identify groups with WRITE permissions on the Share.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: UUID
+> > > > Key: Users
 
-Type: String
+> > > > Type: JSON
 
 
-Description: UUID that identifies the Share.
+> > > > Description: Object containing ACL sets for the Share.
+
+
+> > > >     Key: Read
+
+> > > >     Type: List
+
+
+> > > >     Description: List of UUID's that identify users with READ permissions on the Share.
+
+
+> > > >     Key: Write
+
+> > > >     Type: List
+
+
+> > > >     Description: List of UUID's that identify users with WRITE permissions on the Share.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Transactions
+> > > ###### Transactions
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Returns
+> > > ###### Returns
  - - - - - - - - - - - - - - - - - - - - 
 
 
 
 
-###### Errors
+> > > ###### Errors
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 401
+> > > > Code: 401
 
 
-Missing or invalid <Auth>.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 403
-
-
-Write permission denied.
+> > > > Missing or invalid <Auth>.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 404
+> > > > Code: 403
 
 
-Invalid share UUID.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 410
-
-
-Share has been removed.
+> > > > Write permission denied.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 500
+> > > > Code: 404
 
 
-Server node failiure.
+> > > > Invalid share UUID.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 410
+
+
+> > > > Share has been removed.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failiure.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > ##### DELETE
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Parameters
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: Auth
+
+> > > > Type: String
+
+
+> > > > Description: SHA512 hash that identifies a client.
+
+
+- - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: UUID
+
+> > > > Type: String
+
+
+> > > > Description: UUID that identifies the Share.
+
+
+- - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Transactions
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Returns
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+
+
+> > > ###### Errors
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 401
+
+
+> > > > Missing or invalid <Auth>.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 403
+
+
+> > > > Write permission denied.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 404
+
+
+> > > > Invalid share UUID.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 410
+
+
+> > > > Share has been removed.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failiure.
 
 
  - - - - - - - - - - - - - - - - - - - - 
@@ -836,265 +836,265 @@ Server node failiure.
  - - - - - - - - - - - - - - - - - - - - 
 
 
-#### Verbs
+> #### Verbs
  - - - - - - - - - - - - - - - - - - - - 
 
 
-##### GET
+> > ##### GET
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Parameters
+> > > ###### Parameters
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
+> > > > Key: Auth
 
-Type: String
+> > > > Type: String
 
 
-Description: SHA512 hash that identifies a client.
+> > > > Description: SHA512 hash that identifies a client.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Transactions
+> > > ###### Transactions
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Returns
+> > > ###### Returns
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Files
+> > > > Key: Files
 
-Type: List
-
-
-Description: A list of all accessible files.
+> > > > Type: List
 
 
-    Key: UUID
-
-    Type: String
+> > > > Description: A list of all accessible files.
 
 
-    Description: UUID that represents the share.
+> > > > > > > >     Key: UUID
+
+> > > >     Type: String
 
 
-    Key: Name
-
-    Type: String
+> > > >     Description: UUID that represents the share.
 
 
-    Description: User chosen name as it is defined in the meta-data.
+> > > >     Key: Name
+
+> > > >     Type: String
 
 
-    Key: User_Path
-
-    Type: String
+> > > >     Description: User chosen name as it is defined in the meta-data.
 
 
-    Description: Path to file on original file system.
+> > > >     Key: User_Path
+
+> > > >     Type: String
 
 
-    Key: System_Path
-
-    Type: String
+> > > >     Description: Path to file on original file system.
 
 
-    Description: Path to file on storage system.
+> > > >     Key: System_Path
+
+> > > >     Type: String
 
 
-    Key: Size
-
-    Type: Number
+> > > >     Description: Path to file on storage system.
 
 
-    Description: Size of file in bytes
+> > > >     Key: Size
+
+> > > >     Type: Number
 
 
-    Key: Write
-
-    Type: Boolean
+> > > >     Description: Size of file in bytes
 
 
-    Description: Indicator of whether or not the user can edit the contents of the share.
+> > > >     Key: Write
+
+> > > >     Type: Boolean
+
+
+> > > >     Description: Indicator of whether or not the user can edit the contents of the share.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Errors
+> > > ###### Errors
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 400
+> > > > Code: 400
 
 
-Missing or invalid parameters.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 401
-
-
-Missing or invalid <Auth>.
+> > > > Missing or invalid parameters.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 500
+> > > > Code: 401
 
 
-Server node failure.
+> > > > Missing or invalid <Auth>.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failure.
 
 
  - - - - - - - - - - - - - - - - - - - - 
 
 
-##### POST
+> > ##### POST
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Parameters
+> > > ###### Parameters
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
+> > > > Key: Auth
 
-Type: String
+> > > > Type: String
 
 
-Description: SHA512 hash that identifies a client.
+> > > > Description: SHA512 hash that identifies a client.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Share
+> > > > Key: Share
 
-Type: String
-
-
-Description: REST interface for a storage engine.
+> > > > Type: String
 
 
-- - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Key: Path
-
-Type: String
-
-
-Description: Relative path in which to place the new file. Ex: Documents/Business/Good_Ideas/
+> > > > Description: REST interface for a storage engine.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Name
+> > > > Key: Path
 
-Type: String
-
-
-Description: Name of the new file being created.
+> > > > Type: String
 
 
-- - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Key: Size
-
-Type: Number
-
-
-Description: Size of the new file in bytes.
+> > > > Description: Relative path in which to place the new file. Ex: Documents/Business/Good_Ideas/
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Hash
+> > > > Key: Name
 
-Type: String
+> > > > Type: String
 
 
-Description: SHA512 hash that can be used to validate the file.
+> > > > Description: Name of the new file being created.
+
+
+- - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: Size
+
+> > > > Type: Number
+
+
+> > > > Description: Size of the new file in bytes.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Parts
+> > > > Key: Hash
 
-Type: List
+> > > > Type: String
 
 
-Description: List of SHA512 hashes that can be used to validate parts.
+> > > > Description: SHA512 hash that can be used to validate the file.
+
+
+- - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: Parts
+
+> > > > Type: List
+
+
+> > > > Description: List of SHA512 hashes that can be used to validate parts.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Transactions
+> > > ###### Transactions
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Returns
+> > > ###### Returns
  - - - - - - - - - - - - - - - - - - - - 
 
 
 
 
-###### Errors
+> > > ###### Errors
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 401
+> > > > Code: 401
 
 
-Missing or invalid <Auth>.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 403
-
-
-Write permission denied.
+> > > > Missing or invalid <Auth>.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 404
+> > > > Code: 403
 
 
-Invalid Share UUID.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 410
-
-
-The Share has been removed.
+> > > > Write permission denied.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 412
+> > > > Code: 404
 
 
-The Share is out of allocated space.
+> > > > Invalid Share UUID.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 500
+> > > > Code: 410
 
 
-Server node failiure.
+> > > > The Share has been removed.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 412
+
+
+> > > > The Share is out of allocated space.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failiure.
 
 
  - - - - - - - - - - - - - - - - - - - - 
@@ -1106,324 +1106,324 @@ Server node failiure.
  - - - - - - - - - - - - - - - - - - - - 
 
 
-#### Verbs
+> #### Verbs
  - - - - - - - - - - - - - - - - - - - - 
 
 
-##### GET
+> > ##### GET
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Parameters
+> > > ###### Parameters
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
+> > > > Key: Auth
 
-Type: String
+> > > > Type: String
 
 
-Description: SHA512 hash that identifies a client.
+> > > > Description: SHA512 hash that identifies a client.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Part
+> > > > Key: Part
 
-Type: Number
-
-
-Description: Part offset used as starting point of file read operation.
+> > > > Type: Number
 
 
-- - - - - - - - - - - - - - - - - - - - 
-
-
-###### Transactions
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Returns
- - - - - - - - - - - - - - - - - - - - - 
-
-
- - - - - - - - - - - - - - - - - - - - - 
-Key: NONE
-
-Type: Binary
-
-
-Description: Binary stream of 512 kb.
+> > > > Description: Part offset used as starting point of file read operation.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Errors
+> > > ###### Transactions
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Returns
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 400
+> > > > Key: NONE
+
+> > > > Type: Binary
 
 
-Missing or invalid parameters.
+> > > > Description: Binary stream of 512 kb.
+
+
+> > > > - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Errors
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 400
+
+
+> > > > Missing or invalid parameters.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 401
+> > > > Code: 401
 
 
-Missing or invalid <Auth>.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 403
-
-
-Read permissions denied.
+> > > > Missing or invalid <Auth>.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 404
+> > > > Code: 403
 
 
-Invalid File UUID.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 410
-
-
-File no longer exists.
+> > > > Read permissions denied.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 500
+> > > > Code: 404
 
 
-Server node failure.
+> > > > Invalid File UUID.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 410
+
+
+> > > > File no longer exists.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failure.
 
 
  - - - - - - - - - - - - - - - - - - - - 
 
 
-##### PUT
+> > ##### PUT
  - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Parameters
+> > > ###### Parameters
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
+> > > > Key: Auth
 
-Type: String
+> > > > Type: String
 
 
-Description: SHA512 hash that identifies a client.
+> > > > Description: SHA512 hash that identifies a client.
 
 
 - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Key: Part
+> > > > Key: Part
 
-Type: Number
-
-
-Description: Part offset used as starting point of file write operation.
+> > > > Type: Number
 
 
-- - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Key: Hash
-
-Type: String
-
-
-Description: SHA512 used to validate the chunk.
+> > > > Description: Part offset used as starting point of file write operation.
 
 
 - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Transactions
  - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: Hash
+
+> > > > Type: String
 
 
- - - - - - - - - - - - - - - - - - - - - 
-Name: Ready
-
-
-Source: Server
-
-
-Type: Number
-
-
-Description: Single bytes message that indicates readiness to recieve data.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Name: Payload
-
-
-Source: Client
-
-
-Type: Binary
-
-
-Description: Binary stream of 512 kb.
-
-
- - - - - - - - - - - - - - - - - - - - - 
-###### Returns
- - - - - - - - - - - - - - - - - - - - - 
-
-
-
-
-###### Errors
- - - - - - - - - - - - - - - - - - - - - 
-
-
- - - - - - - - - - - - - - - - - - - - - 
-Code: 400
-
-
-Missing or invalid parameters.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 401
-
-
-Missing or invalid <Auth>.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 403
-
-
-Write permissions denied.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 404
-
-
-Invalid File UUID.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 410
-
-
-File no longer exists.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 500
-
-
-Server node failure.
-
-
- - - - - - - - - - - - - - - - - - - - - 
-
-
-##### DELETE
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Parameters
-
-
- - - - - - - - - - - - - - - - - - - - - 
-Key: Auth
-
-Type: String
-
-
-Description: SHA512 hash that identifies a client.
-
-
-- - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Key: UUID
-
-Type: String
-
-
-Description: UUID that identifies the File.
+> > > > Description: SHA512 used to validate the chunk.
 
 
 - - - - - - - - - - - - - - - - - - - - 
 
 
-###### Transactions
- - - - - - - - - - - - - - - - - - - - - 
-
-
-###### Returns
- - - - - - - - - - - - - - - - - - - - - 
-
-
-
-
-###### Errors
+> > > ###### Transactions
  - - - - - - - - - - - - - - - - - - - - 
 
 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 401
+> > > > Name: Ready
 
 
-Missing or invalid <Auth>.
+> > > > Source: Server
 
 
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 403
+> > > > Type: Number
 
 
-Write permission denied.
-
-
- - - - - - - - - - - - - - - - - - - - - 
- - - - - - - - - - - - - - - - - - - - - 
-Code: 404
-
-
-Invalid File UUID.
+> > > > Description: Single bytes message that indicates readiness to recieve data.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 410
+> > > > Name: Payload
 
 
-File has already been removed.
+> > > > Source: Client
+
+
+> > > > Type: Binary
+
+
+> > > > Description: Binary stream of 512 kb.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > ###### Returns
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+
+
+> > > ###### Errors
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 400
+
+
+> > > > Missing or invalid parameters.
 
 
  - - - - - - - - - - - - - - - - - - - - 
  - - - - - - - - - - - - - - - - - - - - 
-Code: 500
+> > > > Code: 401
 
 
-Server node failiure.
+> > > > Missing or invalid <Auth>.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 403
+
+
+> > > > Write permissions denied.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 404
+
+
+> > > > Invalid File UUID.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 410
+
+
+> > > > File no longer exists.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failure.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > ##### DELETE
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Parameters
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: Auth
+
+> > > > Type: String
+
+
+> > > > Description: SHA512 hash that identifies a client.
+
+
+- - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Key: UUID
+
+> > > > Type: String
+
+
+> > > > Description: UUID that identifies the File.
+
+
+- - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Transactions
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+> > > ###### Returns
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+
+
+> > > ###### Errors
+ - - - - - - - - - - - - - - - - - - - - 
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 401
+
+
+> > > > Missing or invalid <Auth>.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 403
+
+
+> > > > Write permission denied.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 404
+
+
+> > > > Invalid File UUID.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 410
+
+
+> > > > File has already been removed.
+
+
+ - - - - - - - - - - - - - - - - - - - - 
+ - - - - - - - - - - - - - - - - - - - - 
+> > > > Code: 500
+
+
+> > > > Server node failiure.
 
 
  - - - - - - - - - - - - - - - - - - - - 
