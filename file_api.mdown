@@ -329,7 +329,7 @@ REST interface for a storage engine.
 > > > > Description: A list of accessible shares.
 
 
-> > > > > > > >     Key: UUID
+> > > >     Key: UUID
 
 > > > >     Type: String
 
@@ -511,7 +511,7 @@ REST interface for a storage engine.
 > > > > Description: A list of accessible files.
 
 
-> > > > > > > >     Key: UUID
+> > > >     Key: UUID
 
 > > > >     Type: String
 
@@ -876,7 +876,7 @@ REST interface for a storage engine.
 > > > > Description: A list of all accessible files.
 
 
-> > > > > > > >     Key: UUID
+> > > >     Key: UUID
 
 > > > >     Type: String
 
