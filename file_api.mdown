@@ -467,7 +467,7 @@ REST interface for a storage engine.
 
 
 
-### /Shares/`&lt;UUID&gt;`/
+### /Shares/&lt;UUID&gt;/
  - - - - - - - - - - - - - - - - - - - - 
 
 
