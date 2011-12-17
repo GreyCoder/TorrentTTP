@@ -28,9 +28,9 @@
                     ],
 
                     "Transactions": [
-                    
-                    
-                    
+
+
+
                     ],
 
                     "Returns": [
@@ -114,9 +114,9 @@
                     ],
 
                     "Transactions": [
-                    
-                    
-                    
+
+
+
                     ],
 
                     "Returns": [
@@ -139,21 +139,21 @@
                             "Message": "Missing or invalid parameters."
 
                         },
-                        
+
                         {
 
                             "Code": 401,
                             "Message": "Missing or invalid <Auth>."
 
                         },
-                        
+
                         {
 
                             "Code": 409,
                             "Message": "Share already exists."
 
                         },
-                        
+
                         {
                             "Code": 500,
                             "Message": "Server node failure"
@@ -166,7 +166,7 @@
 
             }
         },
-        
+
         {
             "URL": "<Storage Root>/<*Share UUID*>/",
             "Verbs": {
@@ -186,9 +186,9 @@
                     ],
 
                     "Transactions": [
-                    
-                    
-                    
+
+
+
                     ],
 
                     "Returns": [
@@ -254,28 +254,28 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
-                        
+
                         {
 
                             "Code": 403,
                             "Message": "Read permission denied."
 
                         },
-                        
+
                         {
 
                             "Code": 404,
                             "Message": "Invalid share UUID."
 
                         },
-                        
+
                         {
 
                             "Code": 410,
                             "Message": "Share has been removed."
 
                         },
-                        
+
                         {
 
                             "Code": 500,
@@ -334,9 +334,9 @@
                     ],
 
                     "Transactions": [
-                    
-                    
-                    
+
+
+
                     ],
 
                     "Returns": [
@@ -359,35 +359,35 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
-                        
+
                         {
 
                             "Code": 403,
                             "Message": "Read permission denied."
 
                         },
-                        
+
                         {
 
                             "Code": 404,
                             "Message": "Invalid share UUID."
 
                         },
-                        
+
                         {
 
                             "Code": 410,
                             "Message": "Share has been removed."
 
                         },
-                        
+
                         {
 
                             "Code": 412,
                             "Message": "Out of allocated space."
 
                         },
-                        
+
                         {
 
                             "Code": 500,
@@ -476,9 +476,9 @@
                     ],
 
                     "Transactions": [
-                    
-                    
-                    
+
+
+
                     ],
 
                     "Returns": [
@@ -495,28 +495,28 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
-                        
+
                         {
 
                             "Code": 403,
                             "Message": "Write permission denied."
 
                         },
-                        
+
                         {
 
                             "Code": 404,
                             "Message": "Invalid share UUID."
 
                         },
-                        
+
                         {
 
                             "Code": 410,
                             "Message": "Share has been removed."
 
                         },
-                        
+
                         {
 
                             "Code": 500,
@@ -551,9 +551,9 @@
                     ],
 
                     "Transactions": [
-                    
-                    
-                    
+
+
+
                     ],
 
                     "Returns": [
@@ -570,28 +570,28 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
-                        
+
                         {
 
                             "Code": 403,
                             "Message": "Write permission denied."
 
                         },
-                        
+
                         {
 
                             "Code": 404,
                             "Message": "Invalid share UUID."
 
                         },
-                        
+
                         {
 
                             "Code": 410,
                             "Message": "Share has been removed."
 
                         },
-                        
+
                         {
 
                             "Code": 500,
@@ -605,7 +605,7 @@
 
             }
         },
-        
+
         {
             "URL": "<root>/<Share UUID>/<*File UUID*>/",
             "Verbs": {
@@ -633,18 +633,18 @@
                     ],
 
                     "Transactions": [
-                    
-                    
-                    
+
+
+
                     ],
 
                     "Returns": [
 
                         {
-                        
+
                             "Type": "Binary",
                             "Description": "Binary stream of 512 kb."
-                            
+
                         }
 
                     ],
@@ -657,35 +657,35 @@
                             "Message": "Missing or invalid parameters."
 
                         },
-                        
+
                         {
 
                             "Code": 401,
                             "Message": "Missing or invalid <Auth>."
 
                         },
-                        
+
                         {
 
                             "Code": 403,
                             "Message": "Read permissions denied."
 
                         },
-                        
+
                         {
 
                             "Code": 404,
                             "Message": "Invalid <Directory UUID> or <File UUID>."
 
                         },
-                        
+
                         {
 
                             "Code": 410,
                             "Message": "<Directory UUID> or <File UUID> no longer exists."
 
                         },
-                        
+
                         {
 
                             "Code": 500,
@@ -744,9 +744,9 @@
                     ],
 
                     "Transactions": [
-                    
-                    
-                    
+
+
+
                     ],
 
                     "Returns": [
@@ -763,35 +763,35 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
-                        
+
                         {
 
                             "Code": 403,
                             "Message": "Write permission denied."
 
                         },
-                        
+
                         {
 
                             "Code": 404,
                             "Message": "Invalid File UUID."
 
                         },
-                        
+
                         {
 
                             "Code": 410,
                             "Message": "File has been removed."
 
                         },
-                        
+
                         {
 
                             "Code": 412,
                             "Message": "Out of allocated space."
 
                         },
-                        
+
                         {
 
                             "Code": 500,
@@ -843,7 +843,7 @@
                             "Description": "Single bytes message that indicates readiness to recieve data."
 
                         },
-                        
+
                         {
 
                             "Source": "Client",
@@ -869,34 +869,34 @@
                             "Message": "Missing or invalid parameters."
 
                         },
-                        
+
                         {
 
                             "Code": 401,
                             "Message": "Missing or invalid <Auth>."
 
                         },
-                        
+
                         {
 
                             "Code": 403,
                             "Message": "Write permissions denied."
 
                         },
-                        
+
                         {
 
                             "Code": 404,
                             "Message": "Invalid <Directory UUID> or <File UUID>."
 
                         },
-                        
+
                         {
                             "Code": 410,
                             "Message": "<Directory UUID> or <File UUID> no longer exists."
 
                         },
-                        
+
                         {
 
                             "Code": 500,
@@ -931,7 +931,7 @@
                     ],
 
                     "Transactions": [
-                    
+
                     ],
 
                     "Returns": [
@@ -948,35 +948,35 @@
                             "Message": "Missing or invalid <Auth>."
 
                         },
-                        
+
                         {
 
                             "Code": 403,
                             "Message": "Write permission denied."
 
                         },
-                        
+
                         {
 
                             "Code": 404,
                             "Message": "Invalid File UUID."
 
                         },
-                        
+
                         {
 
                             "Code": 410,
                             "Message": "File has been removed."
 
                         },
-                        
+
                         {
 
                             "Code": 412,
                             "Message": "Out of allocated space."
 
                         },
-                        
+
                         {
 
                             "Code": 500,
@@ -989,10 +989,10 @@
                 }
 
             }
-            
+
         }
-        
+
     ]
-    
+
 }
 
