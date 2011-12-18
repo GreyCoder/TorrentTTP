@@ -1,0 +1,17 @@
+{
+    "DocType": "JSON",
+    "Name": "Broker",
+    "Description": "Base attributes for Brokers.",
+    "Attributes": [
+        {
+            "Name": "UUID",
+            "Type": "String",
+            "Description": "UUID that identifies the broker."
+        },
+        {
+            "Name": "IP",
+            "Type": "String",
+            "Description": "IP that represents the location of the broker."
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "DocType": "JSON",
+    "Name": "Session",
+    "Description": "Base attributes for user sessions.",
+    "Attributes": [
+        {
+            "Name": "UUID",
+            "Type": "String",
+            "Description": "UUID that identifies the session."
+        },
+        {
+            "Name": "IP",
+            "Type": "String",
+            "Description": "IP that identifies the location of the user."
+        }
+    ]
+}

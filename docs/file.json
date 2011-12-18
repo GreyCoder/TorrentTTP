@@ -14,9 +14,9 @@
             "Description": "User defined name for file."
         },
         {
-            "Name": "User_Path",
+            "Name": "Source_Path",
             "Type": "String",
-            "Description": "Relative path of file on source file system."
+            "Description": "Relative path of file on original file system."
         },
         {
             "Name": "System_Path",
@@ -25,7 +25,7 @@
         },
         {
             "Name": "Size",
-            "Type": "String",
+            "Type": "Number",
             "Description": "Size of file in bytes"
         }
     ]

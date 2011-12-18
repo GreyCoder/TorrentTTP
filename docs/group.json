@@ -9,11 +9,6 @@
             "Description": "UUID that identifies the groups."
         },
         {
-            "Name": "Name",
-            "Type": "String",
-            "Description": "User defined name for the group."
-        },
-        {
             "Name": "Users",
             "Type": "List",
             "Description": "List of UUID's that identify users in the group."

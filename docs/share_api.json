@@ -1,7 +1,7 @@
 {
     "DocType": "REST",
-    "Name": "File API",
-    "Description": "REST interface for the file engine.",
+    "Name": "Share API",
+    "Description": "REST interface for the share engine.",
     "Functions": [
         {
             "URL": "/",
@@ -18,9 +18,9 @@
                     "Transactions": [],
                     "Returns": [
                         {
-                            "Key": "Files",
+                            "Key": "Shares",
                             "Type": "List",
-                            "Description": "List of File IDs registered on the responding node."
+                            "Description": "List Share IDs registered on the responding node."
                         }
                     ],
                     "Errors": [
@@ -51,29 +51,13 @@
                             "Description": "Session ID for a user."
                         },
                         {
-                            "Key": "Name",
+                            "Key": "UUID",
                             "Type": "String",
-                            "Description": "User defined name for file."
-                        },
-                        {
-                            "Key": "Source_Path",
-                            "Type": "String",
-                            "Description": "Relative path of the file on the original file system."
-                        },
-                        {
-                            "Key": "Size",
-                            "Type": "Number",
-                            "Description": "Size of the file in bytes."
+                            "Description": "Share ID that identifies the group."
                         }
                     ],
                     "Transactions": [],
-                    "Returns": [
-                        {
-                            "Key": "UUID",
-                            "Type": "String",
-                            "Description": "File ID that represents the new file."
-                        }
-                    ],
+                    "Returns": [],
                     "Errors": [
                         {
                             "Code": 400,
@@ -89,19 +73,11 @@
                         },
                         {
                             "Code": 409,
-                            "Message": "Write permission denied."
+                            "Message": "Share ID already registered."
                         },
                         {
                             "Code": 500,
                             "Message": "Node failure."
-                        },
-                        {
-                            "Code": 507,
-                            "Message": "Disk quota exceeded."
-                        },
-                        {
-                            "Code": 509,
-                            "Message": "Bandwith quota exceeded."
                         }
                     ]
                 }
@@ -117,23 +93,19 @@
                             "Key": "Auth",
                             "Type": "String",
                             "Description": "Active Session ID for a user."
-                        },
-                        {
-                            "Key": "Piece",
-                            "Type": "Number",
-                            "Description": "The piece number being requested."
-                        },
-                        {
-                            "Key": "Size",
-                            "Type": "Number",
-                            "Description": "Piece size in bytes."
                         }
                     ],
                     "Transactions": [],
                     "Returns": [
                         {
-                            "Type": "Binary",
-                            "Description": "Binary stream that represent the requested file piece."
+                            "Key": "Groups",
+                            "Type": "List",
+                            "Description": "List Groups IDs registered in the group on the responding node."
+                        },
+                        {
+                            "Key": "Files",
+                            "Type": "List",
+                            "Description": "List of File IDs registered in the group on the responding node."
                         }
                     ],
                     "Errors": [
@@ -152,18 +124,6 @@
                         {
                             "Code": 404,
                             "Message": "File not found."
-                        },
-                        {
-                            "Code": 409,
-                            "Message": "Read permission denied."
-                        },
-                        {
-                            "Code": 410,
-                            "Message": "File no longer exists."
-                        },
-                        {
-                            "Code": 413,
-                            "Message": "Piece size given is too large."
                         },
                         {
                             "Code": 500,
@@ -180,30 +140,17 @@
                             "Description": "Active Session ID for a user."
                         },
                         {
-                            "Key": "Piece",
-                            "Type": "Number",
-                            "Description": "The piece number being requested."
+                            "Key": "Groups",
+                            "Type": "List",
+                            "Description": "List of UUIDs that identify groups."
                         },
                         {
-                            "Key": "Size",
-                            "Type": "Number",
-                            "Description": "Piece size in bytes."
+                            "Key": "Files",
+                            "Type": "List",
+                            "Description": "List of UUIDs that identify files."
                         }
                     ],
-                    "Transactions": [
-                        {
-                            "Source": "Remote",
-                            "Name": "Ready",
-                            "Type": "Binary",
-                            "Description": "Single byte response to initial request signifying readiness."
-                        },
-                        {
-                            "Source": "Local",
-                            "Name": "Payload",
-                            "Type": "Binary",
-                            "Description": "Binary stream that represents the file piece."
-                        }
-                    ],
+                    "Transactions": [],
                     "Returns": [],
                     "Errors": [
                         {
@@ -220,27 +167,11 @@
                         },
                         {
                             "Code": 404,
-                            "Message": "File not found."
-                        },
-                        {
-                            "Code": 409,
-                            "Message": "Write permission denied."
-                        },
-                        {
-                            "Code": 410,
-                            "Message": "File no longer exists."
-                        },
-                        {
-                            "Code": 413,
-                            "Message": "Piece size given is too large."
+                            "Message": "Share not found."
                         },
                         {
                             "Code": 500,
                             "Message": "Node failure."
-                        },
-                        {
-                            "Code": 509,
-                            "Message": "Bandwith quota exceeded."
                         }
                     ]
                 },
@@ -270,15 +201,11 @@
                         },
                         {
                             "Code": 404,
-                            "Message": "File not found."
+                            "Message": "Share not found."
                         },
                         {
                             "Code": 409,
-                            "Message": "Not authorized to delete file."
-                        },
-                        {
-                            "Code": 410,
-                            "Message": "File already deleted."
+                            "Message": "Not authorized to delete share."
                         },
                         {
                             "Code": 500,
