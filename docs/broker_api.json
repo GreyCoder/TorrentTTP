@@ -1,0 +1,878 @@
+{
+
+    "DocType": "REST",
+    "Name": "Broker API",
+    "Description": "REST interface for the broker engine.",
+    "Functions": [
+        {
+            "URL": "/",
+            "Verbs": [
+                {
+                    "Name": "GET",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        {
+                            "Key": "Brokers",
+                            "Type": "List",
+                            "Description": "List of User IDs and IPs that identify other Trust Brokers in the network.",
+                            "Definition":[
+                                {
+                                    "Key": "UUID",
+                                    "Type": "String",
+                                    "Description": "User ID that identifies the trusted peer."
+                                },
+                                {
+                                    "Key": "IP",
+                                    "Type": "String",
+                                    "Description": "IP address that identifies the location of the trusted peer."
+                                }
+                            ]
+                        }
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                },
+                {
+                    "Name": "POST",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that indentifies an active session."
+                        },
+                        {
+                            "Key": "UUID",
+                            "Type": "String",
+                            "Description": "User ID of the Trust Broker node to add."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/<UUID>/",
+            "Verbs": [
+                {
+                    "Name": "DELETE",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 404,
+                            "Message": "Broker not found."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/Users/",
+            "Verbs": [
+                {
+                    "Name": "GET",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        {
+                            "Key": "Brokers",
+                            "Type": "List",
+                            "Description": "List of User IDs and IPs that identify User Brokers in the network.",
+                            "Definition":[
+                                {
+                                    "Key": "UUID",
+                                    "Type": "String",
+                                    "Description": "User ID that identifies the trusted peer."
+                                },
+                                {
+                                    "Key": "IP",
+                                    "Type": "String",
+                                    "Description": "IP address that identifies the location of the trusted peer."
+                                }
+                            ]
+                        }
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                },
+                {
+                    "Name": "POST",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that indentifies an active session."
+                        },
+                        {
+                            "Key": "UUID",
+                            "Type": "String",
+                            "Description": "User ID of the User Broker node to add."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/Users/<UUID>/",
+            "Verbs": [
+                {
+                    "Name": "DELETE",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 404,
+                            "Message": "Broker not found."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/Groups/",
+            "Verbs": [
+                {
+                    "Name": "GET",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        {
+                            "Key": "Brokers",
+                            "Type": "List",
+                            "Description": "List of User IDs and IPs that identify Group Brokers in the network.",
+                            "Definition":[
+                                {
+                                    "Key": "UUID",
+                                    "Type": "String",
+                                    "Description": "User ID that identifies the trusted peer."
+                                },
+                                {
+                                    "Key": "IP",
+                                    "Type": "String",
+                                    "Description": "IP address that identifies the location of the trusted peer."
+                                }
+                            ]
+                        }
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                },
+                {
+                    "Name": "POST",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that indentifies an active session."
+                        },
+                        {
+                            "Key": "UUID",
+                            "Type": "String",
+                            "Description": "User ID of the Group Broker node to add."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/Groups/<UUID>/",
+            "Verbs": [
+                {
+                    "Name": "DELETE",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 404,
+                            "Message": "Broker not found."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/Files/",
+            "Verbs": [
+                {
+                    "Name": "GET",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        {
+                            "Key": "Brokers",
+                            "Type": "List",
+                            "Description": "List of User IDs and IPs that identify File Brokers in the network.",
+                            "Definition":[
+                                {
+                                    "Key": "UUID",
+                                    "Type": "String",
+                                    "Description": "User ID that identifies the trusted peer."
+                                },
+                                {
+                                    "Key": "IP",
+                                    "Type": "String",
+                                    "Description": "IP address that identifies the location of the trusted peer."
+                                }
+                            ]
+                        }
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                },
+                {
+                    "Name": "POST",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that indentifies an active session."
+                        },
+                        {
+                            "Key": "UUID",
+                            "Type": "String",
+                            "Description": "User ID of the File Broker node to add."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/Files/<UUID>/",
+            "Verbs": [
+                {
+                    "Name": "DELETE",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 404,
+                            "Message": "Broker not found."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/Shares/",
+            "Verbs": [
+                {
+                    "Name": "GET",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        {
+                            "Key": "Brokers",
+                            "Type": "List",
+                            "Description": "List of User IDs and IPs that identify Share Brokers in the network.",
+                            "Definition":[
+                                {
+                                    "Key": "UUID",
+                                    "Type": "String",
+                                    "Description": "User ID that identifies the trusted peer."
+                                },
+                                {
+                                    "Key": "IP",
+                                    "Type": "String",
+                                    "Description": "IP address that identifies the location of the trusted peer."
+                                }
+                            ]
+                        }
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                },
+                {
+                    "Name": "POST",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that indentifies an active session."
+                        },
+                        {
+                            "Key": "UUID",
+                            "Type": "String",
+                            "Description": "User ID of the Share Broker node to add."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/Shares/<UUID>/",
+            "Verbs": [
+                {
+                    "Name": "DELETE",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 404,
+                            "Message": "Broker not found."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/Sessions/",
+            "Verbs": [
+                {
+                    "Name": "GET",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        {
+                            "Key": "Brokers",
+                            "Type": "List",
+                            "Description": "List of User IDs and IPs that identify Session Brokers in the network.",
+                            "Definition":[
+                                {
+                                    "Key": "UUID",
+                                    "Type": "String",
+                                    "Description": "User ID that identifies the trusted peer."
+                                },
+                                {
+                                    "Key": "IP",
+                                    "Type": "String",
+                                    "Description": "IP address that identifies the location of the trusted peer."
+                                }
+                            ]
+                        }
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                },
+                {
+                    "Name": "POST",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that indentifies an active session."
+                        },
+                        {
+                            "Key": "UUID",
+                            "Type": "String",
+                            "Description": "User ID of the Session Broker node to add."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "URL": "/Sessions/<UUID>/",
+            "Verbs": [
+                {
+                    "Name": "DELETE",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Session ID that identifies and active session."
+                        }
+                    ],
+                    "Transactions": [
+                        
+                    ],
+                    "Returns": [
+                        
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 404,
+                            "Message": "Broker not found."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Broker management permission denied."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
