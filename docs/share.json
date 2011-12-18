@@ -1,0 +1,34 @@
+{
+    "DocType": "JSON",
+    "Name": "Share",
+    "Description": "Collections of files for use with permissions groups.",
+    "Attributes": [
+        {
+            "Name": "UUID",
+            "Type": "String",
+            "Description": "UUID that identifies the share."
+        },
+        {
+            "Name": "Groups",
+            "Type": "JSON",
+            "Description": "Object containing ACL sets for the share.",
+            "Definition": [
+                {
+                    "Name": "Read",
+                    "Type": "List",
+                    "Description": "List of UUID's that identify groups with read access."
+                },
+                {
+                    "Name": "Write",
+                    "Type": "List",
+                    "Description": "List of UUID's that identify groups with write access."
+                }
+            ]
+        },
+        {
+            "Name": "Files",
+            "Type": "List",
+            "Description": "List of UUID's that represent files in the share."
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "DocType": "JSON",
+    "Name": "User",
+    "Description": "Base attributes for identifiable users.",
+    "Attributes": [
+        {
+            "Name": "UUID",
+            "Type": "String",
+            "Description": "UUID that identifies the user."
+        },
+        {
+            "Name": "Auth",
+            "Type": "String",
+            "Description": "UUID that authenticates the user."
+        }
+    ]
+}

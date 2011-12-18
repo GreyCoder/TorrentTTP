@@ -1,0 +1,33 @@
+{
+    "DocType": "JSON",
+    "Name": "File",
+    "Description": "File object definition.",
+    "Attributes": [
+        {
+            "Name": "UUID",
+            "Type": "String",
+            "Description": "UUID that represents the file."
+        },
+        {
+            "Name": "Name",
+            "Type": "String",
+            "Description": "User defined name for file."
+        },
+        {
+            "Name": "User_Path",
+            "Type": "String",
+            "Description": "Relative path of file on source file system."
+        },
+        {
+            "Name": "System_Path",
+            "Type": "String",
+            "Description": "Relative path of file in Share."
+        },
+        {
+            "Name": "Size",
+            "Type": "String",
+            "Description": "Size of file in bytes"
+        }
+    ]
+}
+
