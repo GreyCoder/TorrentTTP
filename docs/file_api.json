@@ -287,6 +287,77 @@
                     ]
                 }
             ]
+        },
+        {
+            "URL": "/Validate/",
+            "Verbs": [
+                {
+                    "Name": "GET",
+                    "Parameters": [
+                        {
+                            "Key": "Auth",
+                            "Type": "String",
+                            "Description": "Active Session ID for a user."
+                        },
+                        {
+                            "Key": "UUID",
+                            "Type": "String",
+                            "Description": "File ID that identifies the file being validated."
+                        },
+                        {
+                            "Key": "Piece",
+                            "Type": "Number",
+                            "Description": "The piece number being requested."
+                        },
+                        {
+                            "Key": "Size",
+                            "Type": "Number",
+                            "Description": "Piece size in bytes."
+                        }
+                    ],
+                    "Transactions": [],
+                    "Returns": [
+                        {
+                            "Type": "Binary",
+                            "Description": "Binary stream that represent the requested SHA512 hash."
+                        }
+                    ],
+                    "Errors": [
+                        {
+                            "Code": 400,
+                            "Message": "Missing Session ID."
+                        },
+                        {
+                            "Code": 401,
+                            "Message": "Expired Session ID."
+                        },
+                        {
+                            "Code": 403,
+                            "Message": "Unknown Session ID."
+                        },
+                        {
+                            "Code": 404,
+                            "Message": "File not found."
+                        },
+                        {
+                            "Code": 409,
+                            "Message": "Read permission denied."
+                        },
+                        {
+                            "Code": 410,
+                            "Message": "File no longer exists."
+                        },
+                        {
+                            "Code": 413,
+                            "Message": "Piece size given is too large."
+                        },
+                        {
+                            "Code": 500,
+                            "Message": "Node failure."
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
