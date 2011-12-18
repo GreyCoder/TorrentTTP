@@ -88,7 +88,7 @@ REST standards for creating an outwardly accessible API. Function calls are HTTP
 parameters are given in the form of a JSON document, and return values are sent back as a JSON document in an
 HTTP Response. This provides a language, OS, and implementation agnostic protocol for peer communication.
 
-To see the current revision of the REST API, see the *_api.json files.
+To see the current revision of the REST API, see the *_api.json files in the 'docs' directory.
 
 Meta-Data
 ---------------
