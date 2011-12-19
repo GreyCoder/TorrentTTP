@@ -10,20 +10,8 @@
         },
         {
             "Name": "Groups",
-            "Type": "JSON",
-            "Description": "Object containing ACL sets for the share.",
-            "Definition": [
-                {
-                    "Name": "Read",
-                    "Type": "List",
-                    "Description": "List of UUID's that identify groups with read access."
-                },
-                {
-                    "Name": "Write",
-                    "Type": "List",
-                    "Description": "List of UUID's that identify groups with write access."
-                }
-            ]
+            "Type": "List",
+            "Description": "List of UUID's that indentify groups for the share.",
         },
         {
             "Name": "Files",

@@ -53,7 +53,7 @@
                         {
                             "Key": "UUID",
                             "Type": "String",
-                            "Description": "Share ID that identifies the group."
+                            "Description": "Share ID that identifies the share."
                         }
                     ],
                     "Transactions": [],
@@ -100,12 +100,12 @@
                         {
                             "Key": "Groups",
                             "Type": "List",
-                            "Description": "List Groups IDs registered in the group on the responding node."
+                            "Description": "List Groups IDs registered in the share on the responding node."
                         },
                         {
                             "Key": "Files",
                             "Type": "List",
-                            "Description": "List of File IDs registered in the group on the responding node."
+                            "Description": "List of File IDs registered in the share on the responding node."
                         }
                     ],
                     "Errors": [
