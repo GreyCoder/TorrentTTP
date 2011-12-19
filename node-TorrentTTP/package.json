@@ -1,0 +1,12 @@
+{
+  "name"          : "TorrentTTP",
+  "description"   : "Node.js based TorrentTTP client.",
+  "homepage"      : "https://github.com/bobcaveman/TorrentTTP",
+  "keywords"      : [],
+  "author"        : "Kevin Conway <https://github.com/bobcaveman/>",
+  "contributors"  : [],
+  "dependencies"  : ["express", "jade", "mongoose"],
+  "repository"    : {"type": "git", "url": "git://github.com/bobcaveman/TorrentTTP.git"},
+  "main"          : "main.js",
+  "version"       : "0.0.1"
+}
