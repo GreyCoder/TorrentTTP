@@ -56,10 +56,8 @@ Protocol
 File Transfer
 ---------------
 
-File transfer takes place in regularly sized pieces. This protocol will support the initial piece 
-size of 512Kb which is the average suggested size for a piece in the Bit Torrent protocol for files
-as large as 10GB. This system intends to serve files larger than 10GB and testing will determine if
-a more optimal piece size exists.
+File transfer takes place in chunks. This protocol will support arbitrary piece sizes with the maximum
+piece size defined by the responding peer.
 
 HTTP
 #####
@@ -72,14 +70,14 @@ set of tools for building REST interfaces and working with JSON data.
 
 Placing this protocol within the context of web development is also intended to make it easier to create
 custom additions to the base system. The freelance and small scale developers can build clients quickly without
-having to dive into raw TCP socket streaming or the proprietary bencoding scheme of Bit Torrent and the large
+having to dive into raw socket streaming or the proprietary bencoding scheme of Bit Torrent and the large
 scale or team based developers can use readily available tools to rapidly prototype and test new functionality
 with 'off the shelf' technologies.
 
 REST
 #####
 
-With removal of raw TCP streaming for communication, this project needed a standardized format for peer-to-peer
+With removal of raw socket streaming for communication, this project needed a standardized format for peer-to-peer
 communication. HTTP helps to maintain the language agnostic communication that Bit Torrent clients utilize, but 
 does little to standardize the *content* of the communication.
 
