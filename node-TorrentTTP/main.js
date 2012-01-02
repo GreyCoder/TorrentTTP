@@ -22,7 +22,11 @@ app.configure('production', function () {
 
 // Routes
 
-
+app.get('/files/:id?',controllers.files.get);
+app.get('/shares/:id?',controllers.shares.get);
+app.get('/users/:id?',controllers.users.get);
+app.get('/groups/:id?',controllers.groups.get);
+app.get('/sessions/:id?',controllers.sessions.get);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
